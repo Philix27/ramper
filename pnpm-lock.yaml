@@ -136,9 +136,6 @@ importers:
       tailwindcss:
         specifier: ^3.3.2
         version: 3.4.4
-      typescript:
-        specifier: ^5
-        version: 5.3.3
 
   packages/eslint-config:
     devDependencies:
@@ -177,6 +174,12 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-hook-form:
+        specifier: 7.52.0
+        version: 7.52.0(react@18.2.0)
+      react-icons:
+        specifier: 5.2.1
+        version: 5.2.1(react@18.2.0)
       tailwind-merge:
         specifier: ^1.13.2
         version: 1.14.0
@@ -5515,6 +5518,15 @@ packages:
       scheduler: 0.25.0-rc-f994737d14-20240522
     dev: false
 
+  /react-hook-form@7.52.0(react@18.2.0):
+    resolution: {integrity: sha512-mJX506Xc6mirzLsmXUJyqlAI3Kj9Ph2RhplYhUVffeOQSnubK2uVqBFOBJmvKikvbFV91pxVXmDiR+QMF19x6A==}
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18 || ^19
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /react-hook-form@7.52.0(react@19.0.0-rc-f994737d14-20240522):
     resolution: {integrity: sha512-mJX506Xc6mirzLsmXUJyqlAI3Kj9Ph2RhplYhUVffeOQSnubK2uVqBFOBJmvKikvbFV91pxVXmDiR+QMF19x6A==}
     engines: {node: '>=12.22.0'}
@@ -5522,6 +5534,14 @@ packages:
       react: ^16.8.0 || ^17 || ^18 || ^19
     dependencies:
       react: 19.0.0-rc-f994737d14-20240522
+    dev: false
+
+  /react-icons@5.2.1(react@18.2.0):
+    resolution: {integrity: sha512-zdbW5GstTzXaVKvGSyTaBalt7HSfuK5ovrzlpyiWHAFXndXTdd/1hdDHI4xBM1Mn7YriT6aqESucFl9kEXzrdw==}
+    peerDependencies:
+      react: '*'
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react-icons@5.2.1(react@19.0.0-rc-f994737d14-20240522):

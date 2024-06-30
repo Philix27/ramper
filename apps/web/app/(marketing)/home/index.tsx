@@ -1,16 +1,18 @@
-"use client"
+"use client";
 
-import React from "react"
-import CardsSection from "./cards"
-import FooterSection from "./footer"
-import HeroSection from "./hero"
-import HeroCenter from "./heroC"
-import JumbutronSection from "./jumbutron"
-import { AppImg } from "../../lib"
+import React from "react";
+import CardsSection from "./cards";
+import FooterSection from "../_comps/footer";
+import HeroSection from "./hero";
+import HeroCenter from "./heroC";
+import JumbutronSection from "./jumbutron";
+import { AppImg } from "../../lib";
+import { MarketingNavItems, NavbarMarketing } from "../_comps/navbar";
 
 export default function HomePage() {
   return (
     <div>
+      <NavbarMarketing title={"OffRamp"} items={MarketingNavItems} />
       <section className="container flex flex-col items-center gap-5 pb-8 pt-6 md:py-10 md:w-[80%] w-full">
         <HeroCenter
           title={"Cluster contribution and instant loans"}
@@ -60,8 +62,8 @@ export default function HomePage() {
           flexibility and peace of mind`}
         />
         <CardsSection />
-        <FooterSection />
       </section>
+      <FooterSection />
     </div>
-  )
+  );
 }
