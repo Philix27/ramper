@@ -1,17 +1,23 @@
 export class AppPages {
-  static dashboard = "/dashboard"
-  static budgets = {
-    index: "/budgets",
-    create: "/budgets/create",
-  }
-  static invoice = {
+  static auth = {
+    signUp: "/auth/sign-up",
+    signIn: "/auth/signIn",
+    resetPassword: "/auth/reset-password",
+  };
+
+  static core = {
     new: "/invoice/new",
     all: "/invoice",
-  }
-  static paymentLink = "/payment-links"
-  static transactions = "/transactions"
-  static transactionsCrypto = "/transactions/crypto"
-  static transactionsFiat = "/transactions/fiat"
-  static settings = "/settings"
-  static wallet = "/wallet"
+  };
+
+  static dashboard = "/dashboard";
+  static onboarding = "/onboarding";
+
+  static solutions = "/solutions";
+  static contactUs = "/contact-us";
+  static aboutUs = "/about-us";
+  static blogs = "/blogs";
+  static faq = "/faq";
+  static privacyPolicy = "/privacy-policy";
+  static termsCondition = "/terms-condition";
 }

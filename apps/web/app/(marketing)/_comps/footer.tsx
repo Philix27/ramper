@@ -3,6 +3,7 @@
 import React from "react";
 import { TextH, TextP } from "@repo/ui";
 import Link from "next/link";
+import { AppPages } from "../../lib";
 
 export default function FooterSection() {
   return (
@@ -14,28 +15,28 @@ export default function FooterSection() {
         <Section
           title={"Company"}
           list={[
-            { title: "About Us", link: "#" },
-            { title: "Blogs", link: "#" },
-            { title: "Terms of Service", link: "#" },
-            { title: "Privacy Policy", link: "#" },
+            { title: "About Us", link: AppPages.aboutUs },
+            { title: "Blogs", link: AppPages.blogs },
+            { title: "Terms of Service", link: AppPages.termsCondition },
+            { title: "Privacy Policy", link: AppPages.privacyPolicy },
           ]}
         />
         <Section
           title={"Solutions"}
           list={[
-            { title: "Gift cards", link: "#" },
+            { title: "Gift cards", link: AppPages.solutions },
             { title: "Swap", link: "#" },
           ]}
         />
         <Section
           title={"Support"}
           list={[
-            { title: "FAQ", link: "#" },
-            { title: "Supported Countries", link: "#" },
+            { title: "FAQ", link: AppPages.faq },
+            { title: "Contact Us", link: AppPages.contactUs },
           ]}
         />
         <Section
-          title={"Contact"}
+          title={"Link"}
           list={[
             { title: "Email", link: "#" },
             { title: "LinkedIn", link: "#" },

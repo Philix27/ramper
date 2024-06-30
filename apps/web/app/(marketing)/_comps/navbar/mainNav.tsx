@@ -2,18 +2,20 @@
 
 import Link from "next/link";
 import { MainNavProps } from "./site";
-import { TextP } from "@repo/ui";
+import { TextH, TextP } from "@repo/ui";
 
 export function NavbarMarketing(props: MainNavProps) {
   return (
-    <header className="bg-primary sticky top-0 z-20 w-full border-b">
+    <header className="bg-card sticky top-0 z-20 w-full border-b">
       <div className="container flex h-[60px] items-center justify-between">
         <div className="flex gap-6 md:gap-10 ">
-          <Link
-            href="/"
-            className="items-center space-x-2 font-extrabold text-primary-foreground tracking-wide text-lg"
-          >
-            {props.title}
+          <Link href="/" className="items-center space-x-2">
+            <TextH
+              v="h3"
+              className={"text-primary font-extrabold tracking-wider"}
+            >
+              {props.title}
+            </TextH>
           </Link>
         </div>
 
@@ -21,14 +23,13 @@ export function NavbarMarketing(props: MainNavProps) {
           <div className={"hidden md:flex w-full gap-x-4"}>
             {props.items?.map((v, i) => (
               <Link
+                key={i}
                 href={v.href || "/#"}
-                className={`hover:bg-accent p-2 rounded-md`}
+                className={`hover:bg-accent p-2 rounded-md hover:[&>p]:text-primary-foreground`}
               >
-                <div key={i}>
-                  <TextP v="p6" className={"text-primary-foreground"}>
-                    {v.title}
-                  </TextP>
-                </div>
+                <TextP v="p6" className={"text-primary"}>
+                  {v.title}
+                </TextP>
               </Link>
             ))}
           </div>
