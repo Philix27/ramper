@@ -3,8 +3,14 @@
 import Link from "next/link";
 import { MainNavProps } from "./site";
 import { TextH, TextP } from "@repo/ui";
+import MobileSidebar from "../sidebar";
+import { useState } from "react";
+import {  AiOutlineClose, AiOutlineMenu} from "react-icons/ai";
+
 
 export function NavbarMarketing(props: MainNavProps) {
+  const [showNav, setShowNav] = useState(false);
+
   return (
     <header className="bg-card sticky top-0 z-20 w-full border-b">
       <div className="container flex h-[60px] items-center justify-between">
@@ -32,22 +38,27 @@ export function NavbarMarketing(props: MainNavProps) {
                 </TextP>
               </Link>
             ))}
+            <div className="mr-4">{/* <ThemeToggle /> */}</div>
           </div>
-          <div className="mr-4">{/* <ThemeToggle /> */}</div>
+
           <div className={"md:hidden"}>
-            {/* {isSidebarOpen ? (
-              <SidebarClose
+            {showNav && <MobileSidebar items={props.items} />}
+
+            {showNav ? (
+              <AiOutlineClose
+                className="size-[20px] text-primary"
                 onClick={() => {
-                  setIsSidebarOpen(false);
+                  setShowNav(false);
                 }}
               />
             ) : (
-              <MenuIcon
+              <AiOutlineMenu
+                className="size-[20px] text-primary"
                 onClick={() => {
-                  setIsSidebarOpen(true);
+                  setShowNav(true);
                 }}
               />
-            )} */}
+            )}
           </div>
         </div>
       </div>

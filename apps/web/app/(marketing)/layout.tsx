@@ -6,7 +6,7 @@ export default function MarketingLayout(props: { children: ReactNode }) {
   return (
     <div className="h-screen ">
       <NavbarMarketing title={"OffRamp"} items={MarketingNavItems} />
-      {props.children}
+      <div className="min-h-screen">{props.children}</div>
       <FooterSection />
     </div>
   );
