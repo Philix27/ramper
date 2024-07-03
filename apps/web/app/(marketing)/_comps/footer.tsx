@@ -9,9 +9,17 @@ export default function FooterSection() {
   return (
     <div
       className={`
-      w-full border-t-[1px] border-primary bg-primary`}
+      w-full border-t-[1px] border-primary
+      bg-primary flex items-center
+      justify-center`}
     >
-      <div className="py-4 h-full flex md:flex-row flex-col items-center md:items-start justify-around w-full">
+      <div
+        className={`w-[80%]
+        py-4 h-full flex md:flex-row 
+        flex-col items-center 
+        md:items-start justify-around
+      `}
+      >
         <Section
           title={"Company"}
           list={[

@@ -35,7 +35,7 @@ const cardItems = [
     img: AppImg.pay.pay3,
     subtitle: `Global socials is a product of Paymais where 
     subscribers pay #500 every
-    Sunday for 50 Sundays.`,
+    Sunday for 50 Sundays `,
   },
 ]
 export default function CardsSection() {
