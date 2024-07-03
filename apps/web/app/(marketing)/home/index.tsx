@@ -2,20 +2,30 @@
 
 import React from "react";
 import CardsSection from "./cards";
-import { HeroSection, HeroCenter, JumbutronSection } from "../_comps";
+import {
+  HeroSection,
+  HeroCenter,
+  JumbutronSection,
+  HeroWithImg,
+} from "../_comps";
 import { AppImg } from "../../lib";
+import { TextH } from "@repo/ui";
 
 export default function HomePage() {
   return (
     <div>
-      <HeroCenter
-        title={"Send And Receive Crypto and Fiat to family and friends."}
-        subtitle={`We drive to optimize 
-          cluster contribution (Adashi) 
-          digitally, in order to assist civil servants,
-          business owners and private individuals with a
-          seamless way of saving and access to instant loans.`}
-      />
+      <HeroWithImg img={"/fx1.png"}>
+        <TextH
+          v="h1"
+          className={
+            "text-[24px] font-extrabold md:text-[50px] text-card-foreground"
+          }
+        >
+          <span className="text-primary"> Send </span> and
+          <span className="text-primary"> Receive</span> Crypto and Fiat to
+          family and friends.
+        </TextH>
+      </HeroWithImg>
       <HeroSection
         img={AppImg.chain}
         title={"Our Mission"}

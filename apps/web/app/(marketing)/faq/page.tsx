@@ -1,17 +1,20 @@
 import React from "react";
 import { HeroCenter } from "../_comps";
+import { TextH } from "@repo/ui";
 
 export default function FaqPage() {
   return (
     <section>
-      <HeroCenter
-        title={"Frequently asked questions"}
-        subtitle={`We drive to optimize 
-          cluster contribution (Adashi) 
-          digitally, in order to assist civil servants,
-          business owners and private individuals with a
-          seamless way of saving and access to instant loans.`}
-      />
+      <HeroCenter>
+        <TextH
+          v="h1"
+          className={
+            "text-[24px] font-extrabold md:text-[50px] text-card-foreground"
+          }
+        >
+          Frequently asked questions
+        </TextH>
+      </HeroCenter>
     </section>
   );
 }
