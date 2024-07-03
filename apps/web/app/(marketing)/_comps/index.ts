@@ -1,0 +1,5 @@
+export * from "./heroC"
+export * from "./jumbutron"
+export * from "./hero"
+export * from "./footer"
+export * from "./navbar"

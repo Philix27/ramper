@@ -1,40 +1,41 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { TextH, TextP } from "@repo/ui";
 
-export default function HeroSection(props: {
+export function HeroSection(props: {
   title: string;
   subtitle: string;
   img: string;
   imgFirst?: boolean;
 }) {
   return (
-    <div
-      className={`
+    <section className="container md:w-[80%] w-full">
+      <div
+        className={`
         w-full 
         grid grid-cols-1
         md:grid-cols-2
         px-2 md:px-[5%] bg-primary rounded-2xl
     `}
-    >
-      {props.imgFirst ? (
-        <>
-          <div className={"flex items-center justify-center"}>
-            <img src={props.img} alt="" className={"h-[300px] w-[200px]"} />
-          </div>
-          <TextBlock {...props} />
-        </>
-      ) : (
-        <>
-          <TextBlock {...props} />
-          <div className={"flex items-center justify-center"}>
-            <img src={props.img} alt="" className={"h-[300px] w-[200px]"} />
-          </div>
-        </>
-      )}
-    </div>
+      >
+        {props.imgFirst ? (
+          <>
+            <div className={"flex items-center justify-center"}>
+              <img src={props.img} alt="" className={"h-[300px] w-[200px]"} />
+            </div>
+            <TextBlock {...props} />
+          </>
+        ) : (
+          <>
+            <TextBlock {...props} />
+            <div className={"flex items-center justify-center"}>
+              <img src={props.img} alt="" className={"h-[300px] w-[200px]"} />
+            </div>
+          </>
+        )}
+      </div>
+    </section>
   );
 }
 function TextBlock(props: {

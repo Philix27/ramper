@@ -2,11 +2,10 @@
 
 import Link from "next/link";
 import { MainNavProps } from "./site";
-import { TextH, TextP } from "@repo/ui";
+import { AppButton, TextH, TextP } from "@repo/ui";
 import MobileSidebar from "../sidebar";
 import { useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
-
 
 export function NavbarMarketing(props: MainNavProps) {
   const [showNav, setShowNav] = useState(false);
@@ -39,7 +38,8 @@ export function NavbarMarketing(props: MainNavProps) {
                 </TextP>
               </Link>
             ))}
-            <div className="mr-4">{/* <ThemeToggle /> */}</div>
+            <AppButton>Buy Now</AppButton>
+            {/* <div className="mr-4"><ThemeToggle /></div> */}
           </div>
 
           <div className={"md:hidden"}>
@@ -66,3 +66,4 @@ export function NavbarMarketing(props: MainNavProps) {
     </header>
   );
 }
+

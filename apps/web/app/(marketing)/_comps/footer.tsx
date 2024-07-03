@@ -5,7 +5,7 @@ import { TextH, TextP } from "@repo/ui";
 import Link from "next/link";
 import { AppPages } from "../../lib";
 
-export default function FooterSection() {
+export function FooterSection() {
   return (
     <div
       className={`
