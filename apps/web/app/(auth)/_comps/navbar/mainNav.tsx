@@ -9,7 +9,7 @@ import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { useRouter } from "next/navigation";
 import { AppPages } from "../../../lib";
 
-export function NavbarMarketing(props: MainNavProps) {
+export function NavbarAuth(props: MainNavProps) {
   const [showNav, setShowNav] = useState(false);
   const router = useRouter()
 

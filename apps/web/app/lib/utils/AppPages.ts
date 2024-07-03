@@ -1,8 +1,8 @@
 export class AppPages {
   static auth = {
-    signUp: "/auth/sign-up",
-    signIn: "/auth/signIn",
-    resetPassword: "/auth/reset-password",
+    signUp: "/sign-up",
+    signIn: "/sign-in",
+    resetPassword: "/reset-password",
   };
 
   static core = {
