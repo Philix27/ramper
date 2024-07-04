@@ -1,8 +1,9 @@
 "use client";
 
 import React from "react";
-import CardsSection from "./cards";
+
 import {
+  CardsSection,
   HeroSection,
   HeroCenter,
   JumbutronSection,
@@ -10,6 +11,7 @@ import {
 } from "../_comps";
 import { AppImg } from "../../lib";
 import { TextH } from "@repo/ui";
+import { cardData } from "./cards";
 
 export default function HomePage() {
   return (
@@ -65,7 +67,7 @@ export default function HomePage() {
           providing them with financial
           flexibility and peace of mind`}
       />
-      <CardsSection />
+      <CardsSection data={cardData} />
     </div>
   );
 }
