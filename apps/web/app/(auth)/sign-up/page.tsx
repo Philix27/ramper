@@ -1,7 +1,14 @@
-import React from 'react'
+import React from "react";
+import { AuthWrapper } from "../_comps";
 
 export default function SignUpPage() {
   return (
-    <div>SignUpPage</div>
-  )
+    <AuthWrapper
+      imgPath={"/fx1.png"}
+      title={"Create Account"}
+      subtitle={"Sign Up"}
+    >
+      <div>SignUpPage</div>
+    </AuthWrapper>
+  );
 }
