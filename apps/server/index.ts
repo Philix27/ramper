@@ -1,6 +1,9 @@
+import { registerRoutes } from "./routes";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { logger } from "hono/logger";
+
+export * from "./routes";
 
 // export const runtime = "edge"
 
@@ -15,7 +18,10 @@ app.use("*", logger());
 //   })
 // )
 
+const routes = registerRoutes(app);
+
 // generateApi(app.routes);
+
 
 app.get("/", (c) => {
   return c.text("Hello Hono!");
@@ -29,4 +35,4 @@ Bun.serve({
   fetch: app.fetch,
 });
 
-export type AppType = typeof app.routes;
+export type AppType = typeof routes;
