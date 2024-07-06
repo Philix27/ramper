@@ -2,10 +2,9 @@
 
 import React from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { BookIcon, LucideIcon, SearchIcon } from "lucide-react";
+import { BookIcon, LucideIcon, UtilityPole } from "lucide-react";
 import { IconType } from "react-icons";
-import { GiMedicines } from "react-icons/gi";
-import { IoHomeOutline } from "react-icons/io5";
+import { IoGift, IoHome } from "react-icons/io5";
 import { cn } from "@repo/ui";
 
 export function BottomNav() {
@@ -41,11 +40,11 @@ export function BottomNav() {
               className={cn(
                 `size-[40px] 
               flex flex-col items-center justify-center
-              rounded-[15px]`,
-                isActive(link) ? "bg-secondary" : "bg-primary"
+              rounded-[10px]`,
+                isActive(link) ? "bg-background" : "bg-primary"
               )}
             >
-              <Icon className={"text-primary-foreground"} size={20} />
+              <Icon className={"text-primary-foreground"} size={18} />
             </div>
           );
         })}
@@ -56,23 +55,18 @@ export function BottomNav() {
 const navItems: { title: string; Icon: LucideIcon | IconType; link: string }[] =
   [
     {
-      title: "Dashboard",
-      link: "/dashboard",
-      Icon: IoHomeOutline,
+      title: "Gift",
+      link: "/",
+      Icon: IoHome,
     },
     {
-      title: "Search",
-      link: "/search",
-      Icon: SearchIcon,
+      title: "Redeem",
+      link: "/redeem",
+      Icon: IoGift,
     },
     {
-      title: "Appointments",
-      link: "/meetings",
-      Icon: BookIcon,
-    },
-    {
-      title: "Drugs",
-      link: "/pharmacy",
-      Icon: GiMedicines,
+      title: "Utilities",
+      link: "/utilities",
+      Icon: UtilityPole,
     },
   ];

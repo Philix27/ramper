@@ -19,11 +19,12 @@ export function AppTextInput<T extends FieldValues>(props: {
   label?: string;
   type?: "text" | "number" | "date" | "file";
   errorMessage?: string;
+  className?: string;
 }) {
   const [showPassword, setToggle] = useState(false);
 
   return (
-    <div className={"flex-[1] w-full mb-2"}>
+    <div className={cn("flex-[1] w-full mb-2", props.className)}>
       <div className="flex flex-col items-start">
         {props.label && (
           <div className="pb-2">

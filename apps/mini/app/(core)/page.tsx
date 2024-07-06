@@ -1,5 +1,6 @@
 import React from "react";
+import GiftPage from "./gift";
 
 export default function Page() {
-  return <div>Mini App Page</div>;
+  return <GiftPage />;
 }
