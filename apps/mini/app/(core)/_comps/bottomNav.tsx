@@ -2,7 +2,7 @@
 
 import React from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { BookIcon, LucideIcon, UtilityPole } from "lucide-react";
+import { LucideIcon, UtilityPole } from "lucide-react";
 import { IconType } from "react-icons";
 import { IoGift, IoHome } from "react-icons/io5";
 import { cn } from "@repo/ui";

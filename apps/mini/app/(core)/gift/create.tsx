@@ -48,8 +48,13 @@ export default function CreateGiftCard() {
             label="Wallet Address"
           />
         )}
-      </div>
-      <div>
+        <AppTextInput
+          control={undefined}
+          name={"purpose"}
+          place="Name to show on card"
+          className="mt-2"
+          label="Card Owner"
+        />
         <AppTextInput
           control={undefined}
           name={"purpose"}
@@ -57,7 +62,16 @@ export default function CreateGiftCard() {
           className="mt-2"
           label="Purpose"
         />
+        <AppTextInput
+          control={undefined}
+          name={"amount"}
+          place="Enter amount in CUSD"
+          className="mt-2"
+          label="Amount"
+        />
+        <TextP>Select Design / color</TextP>
       </div>
+
       <AppButton className="my-2">Create</AppButton>
     </div>
   );
