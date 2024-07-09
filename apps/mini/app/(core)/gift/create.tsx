@@ -2,7 +2,7 @@
 import { AppButton, AppTextInput, TextP } from "@repo/ui";
 import React, { useState } from "react";
 
-type ISendTo = "PHONE" | "EMAIL" | "WALLET";
+type ISendTo = "PHONE" | "EMAIL";
 
 export default function CreateGiftCard() {
   const [sendTo, setSendTo] = useState<ISendTo>("PHONE");
@@ -39,15 +39,7 @@ export default function CreateGiftCard() {
             label="Phone"
           />
         )}
-        {sendTo === "WALLET" && (
-          <AppTextInput
-            control={undefined}
-            name={"walletAddress"}
-            place="Enter wallet address"
-            className="mt-2"
-            label="Wallet Address"
-          />
-        )}
+
         <AppTextInput
           control={undefined}
           name={"purpose"}

@@ -8,7 +8,7 @@ export function GiftCard(props: {
   from: string;
 }) {
   return (
-    <div className="w-full bg-blue-700 rounded-xl p-3 my-4">
+    <div className="w-full bg-blue-700 rounded-md px-3 py-2 my-4">
       <div className="flex items-center justify-between">
         <TextP v="p3" className={"text-white"}>
           {props.cardOwner}

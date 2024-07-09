@@ -1,4 +1,4 @@
-import { GiftCard } from "./card";
+import { GiftCard } from "../_comps/card";
 
 export function OutgoingGiftCards() {
   return (

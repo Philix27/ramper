@@ -21,7 +21,7 @@ export function BottomNav() {
   return (
     <div
       className={`
-        fixed bottom-0 h-[50px] 
+        fixed bottom-0 h-[50px]
         border-t-[0.5px] bg-primary
         w-full flex items-center justify-center 
       `}
