@@ -1,28 +1,13 @@
 import { db } from "..";
-import { workspaceSchema } from "../schema";
+import { airtimePlanSchema } from "../schema";
 import { eq } from "drizzle-orm";
 
 export class AirtimeRepository {
-  async getById(params: { id: number }) {
+  async create(params: { amount: number; network: string; owner_id: number }) {
     try {
-      const res = await db.query.workspaceSchema.findFirst({
-        where: (user, { eq }) => eq(workspaceSchema.id, params.id),
-        columns: {
-          id: true,
-        },
-      });
-      return res;
-    } catch (error) {
-      throw new Error("Oops an error ocurred");
-    }
-  }
-
-  async create(params: { name: string; desc?: string; owner_id: number }) {
-    try {
-      const res = await db.insert(workspaceSchema).values({
-        name: params.name,
-        desc: params.desc,
-        owner_id: params.owner_id,
+      const res = await db.insert(airtimePlanSchema).values({
+        amount: params.amount,
+        network: params.network,
       });
       return res;
     } catch (error) {
@@ -30,15 +15,14 @@ export class AirtimeRepository {
     }
   }
 
-  async update(params: { id: number; name?: string; desc?: string }) {
+  async update(params: { id: number; amount: number }) {
     try {
       const res = await db
-        .update(workspaceSchema)
+        .update(airtimePlanSchema)
         .set({
-          name: params.name,
-          desc: params.desc,
+          amount: params.amount,
         })
-        .where(eq(workspaceSchema.id, params.id));
+        .where(eq(airtimePlanSchema.id, params.id));
       // todo: Log
       return res;
     } catch (error) {
@@ -50,8 +34,8 @@ export class AirtimeRepository {
   async delete(params: { id: number }) {
     try {
       const res = await db
-        .delete(workspaceSchema)
-        .where(eq(workspaceSchema.id, params.id));
+        .delete(airtimePlanSchema)
+        .where(eq(airtimePlanSchema.id, params.id));
       // todo: Log
       return res;
     } catch (error) {
