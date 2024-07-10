@@ -2,7 +2,7 @@ import { db } from "..";
 import { workspaceSchema } from "../schema";
 import { eq } from "drizzle-orm";
 
-export class GiftCardRepository {
+export class BeneficiaryRepository {
   async getById(params: { id: number }) {
     try {
       const res = await db.query.workspaceSchema.findFirst({
