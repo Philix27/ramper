@@ -1,3 +1,6 @@
 export * from "./bottomNav"
 export * from "./InputText"
 export * from "./navbar"
+export * from "./modal"
+export * from "./modal"
+export * from "./TextInput"

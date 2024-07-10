@@ -1,11 +1,11 @@
 "use client";
 
+import { TextP, cn } from "@repo/ui";
 import { useState } from "react";
 import { FieldValues, Path } from "react-hook-form";
 import { CiLock } from "react-icons/ci";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
-import { cn } from "../lib";
-import { TextP } from "../core";
+
 
 export function AppTextInput<T extends FieldValues>(props: {
   isPassword?: boolean;
