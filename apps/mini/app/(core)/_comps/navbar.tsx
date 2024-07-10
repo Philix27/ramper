@@ -1,8 +1,13 @@
 import { TextP } from "@repo/ui";
 import React from "react";
-import { FaHistory } from "react-icons/fa";
+import { IconType } from "react-icons";
 
-export default function Navbar(props: { title: string }) {
+export default function Navbar(props: {
+  title: string;
+  icon?: IconType;
+  onIconClick?: VoidFunction;
+}) {
+  const Icon = props.icon!;
   return (
     <div
       className={
@@ -15,7 +20,7 @@ export default function Navbar(props: { title: string }) {
       <TextP v="p4" className="text-primary-foreground my-0">
         {props.title}
       </TextP>
-      <FaHistory />
+      {props.icon ? <Icon onClick={props.onIconClick} /> : <div />}
     </div>
   );
 }

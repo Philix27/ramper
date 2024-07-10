@@ -2,9 +2,8 @@
 
 import React from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { LucideIcon, UtilityPole } from "lucide-react";
 import { IconType } from "react-icons";
-import { IoGift, IoHome } from "react-icons/io5";
+import { IoGift, IoHome, IoPerson } from "react-icons/io5";
 import { cn } from "@repo/ui";
 
 export function BottomNav() {
@@ -52,21 +51,20 @@ export function BottomNav() {
     </div>
   );
 }
-const navItems: { title: string; Icon: LucideIcon | IconType; link: string }[] =
-  [
-    {
-      title: "Gift",
-      link: "/",
-      Icon: IoHome,
-    },
-    {
-      title: "Redeem",
-      link: "/redeem",
-      Icon: IoGift,
-    },
-    {
-      title: "Utilities",
-      link: "/utilities",
-      Icon: UtilityPole,
-    },
-  ];
+const navItems: { title: string; Icon: IconType | IconType; link: string }[] = [
+  {
+    title: "Gift",
+    link: "/",
+    Icon: IoHome,
+  },
+  {
+    title: "Redeem",
+    link: "/redeem",
+    Icon: IoGift,
+  },
+  {
+    title: "Profile",
+    link: "/account",
+    Icon: IoPerson,
+  },
+];

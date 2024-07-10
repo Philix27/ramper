@@ -7,8 +7,8 @@ import { CardsCreationHistory } from "./history";
 export default function GiftPage() {
   return (
     <>
-      <Navbar title={"  Create gift card"} />
-      <div className="px-8 py-4">
+      <Navbar title={"Create gift card"} />
+      <div className="px-8 py-4 mb-10">
         <TextP v={"p5"}>Send a gift card to your loved ones</TextP>
         <CreateGiftCard />
         <CardsCreationHistory />
