@@ -1,33 +1,17 @@
 import { updateSchema, createSchema, getAllSchema } from "./schema";
 import { Hono } from "hono";
-import { WorkspaceService } from "./service";
-import { WorkspaceRepository } from "../../db";
+import { BeneficiaryService } from "./service";
+import { BeneficiaryRepository } from "../../db";
 
-const service = new WorkspaceService(new WorkspaceRepository());
+const service = new BeneficiaryService(new BeneficiaryRepository());
 
-export const workspaceRoutes = new Hono()
+export const beneficiaryRoutes = new Hono()
   .post("/", createSchema, async (c) => {
     try {
       const payload = c.req.valid("json");
       const res = await service.create(payload);
       return c.json({
         msg: "Created a new workspace",
-      });
-    } catch (error) {
-      return c.json({
-        msg: error,
-      });
-    }
-  })
-  .put("/:id", updateSchema, async (c) => {
-    try {
-      const param = c.req.param("id");
-      const payload = c.req.valid("json");
-
-      await service.update({ id: parseInt(param), ...payload });
-
-      return c.json({
-        msg: "Update workspace",
       });
     } catch (error) {
       return c.json({
@@ -54,7 +38,9 @@ export const workspaceRoutes = new Hono()
     try {
       const payload = c.req.valid("json");
 
-      await service.getAll({});
+      await service.getAll({
+        user_id: 0
+      });
       return c.json({
         msg: "get workspace",
       });

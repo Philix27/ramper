@@ -16,6 +16,20 @@ export class BeneficiaryRepository {
       throw new Error("Oops an error ocurred");
     }
   }
+  async getAll(params: { user_id: number }) {
+    try {
+      const res = await db.query.beneficiarySchema.findFirst({
+        where: (user, { eq }) => eq(beneficiarySchema.user_id, params.user_id),
+        columns: {
+          id: true,
+          phone: true,
+        },
+      });
+      return res;
+    } catch (error) {
+      throw new Error("Oops an error ocurred");
+    }
+  }
 
   async create(params: { phone: string; title?: string; user_id: number }) {
     try {

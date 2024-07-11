@@ -1,12 +1,21 @@
-import { BeneficiaryRepository } from "../../db";
+import { GiftCardRepository } from "../../db";
 
-export class BeneficiaryService {
-  constructor(private readonly repo: BeneficiaryRepository) {}
+export class GiftCardService {
+  constructor(private readonly repo: GiftCardRepository) {}
 
-  async create(props: { phone: string; user_id: number }) {
+  async create(props: {
+    purpose: string;
+    amount: number;
+    user_id: number;
+    phone?: string;
+    email?: string;
+  }) {
     const res = await this.repo.create({
-      phone: props.phone,
+      amount: props.amount,
       user_id: props.user_id,
+      purpose: props.purpose,
+      phone: props.phone,
+      email: props.email,
     });
     return res;
   }

@@ -4,9 +4,8 @@ import { z } from "zod";
 export const createSchema = zValidator(
   "json",
   z.object({
-    owner_id: z.number(),
-    name: z.string(),
-    desc: z.string().optional(),
+    phone: z.string(),
+    user_id: z.number(),
   })
 );
 
@@ -20,7 +19,8 @@ export const updateSchema = zValidator(
 export const getAllSchema = zValidator(
   "json",
   z.object({
-    limit: z.number(),
-    offset: z.number(),
+    user_id: z.number(),
+    limit: z.number().optional(),
+    offset: z.number().optional(),
   })
 );

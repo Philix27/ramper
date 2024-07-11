@@ -4,6 +4,12 @@ import { eq } from "drizzle-orm";
 import { giftCardSchema } from "../schema";
 
 export class GiftCardRepository {
+  getAll(arg0: { user_id: number }) {
+    throw new Error("Method not implemented.");
+  }
+  delete(arg0: { id: number }) {
+    throw new Error("Method not implemented.");
+  }
   async getById(params: { id: number }) {
     try {
       const res = await db.query.giftCardSchema.findFirst({

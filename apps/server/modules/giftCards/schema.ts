@@ -4,9 +4,15 @@ import { z } from "zod";
 export const createSchema = zValidator(
   "json",
   z.object({
-    workspaceId: z.number(),
-    name: z.string(),
-    desc: z.string().optional(),
+    user_id: z.number(),
+    amount: z.number(),
+    purpose: z.string(),
+    phone: z.string().optional(),
+    email: z.string().optional(),
+    //  purpose: string;
+    // user_id: number;
+    // phone: string;
+    // amount: number;
   })
 );
 
@@ -20,7 +26,8 @@ export const updateSchema = zValidator(
 export const getAllSchema = zValidator(
   "json",
   z.object({
-    limit: z.number(),
-    offset: z.number(),
+    user_id: z.number(),
+    limit: z.number().optional(),
+    offset: z.number().optional(),
   })
 );
