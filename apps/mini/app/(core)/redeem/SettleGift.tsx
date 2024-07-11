@@ -7,6 +7,7 @@ import { ModalWrapper, AppTextInput, InputText } from "../_comps";
 type INetwork = "MTN" | "AIRTEL" | "GLO";
 export default function SettleCard(props: { onClose: VoidFunction }) {
   const [sendTo, setSendTo] = useState<INetwork>("MTN");
+  
   return (
     <ModalWrapper>
       <div className="flex items-center justify-between mt-2 mb-0">
