@@ -1,8 +1,10 @@
 import React from "react";
 import Navbar from "../_comps/navbar";
 import { TextH, TextP } from "@repo/ui";
+import { ApiClient } from "@/lib";
 
 export default function AccountPage() {
+  
   return (
     <>
       <Navbar title={"Profile"} />

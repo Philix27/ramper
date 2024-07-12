@@ -1,5 +1,6 @@
 import { TextH } from "@repo/ui";
 import { GiftCard } from "../_comps/card";
+import { ApiClient } from "@/lib";
 
 export function CardsCreationHistory() {
   return (

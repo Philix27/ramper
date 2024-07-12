@@ -3,11 +3,12 @@ import { AppButton, TextP } from "@repo/ui";
 import React, { useState } from "react";
 import { IoClose } from "react-icons/io5";
 import { ModalWrapper, AppTextInput, InputText } from "../_comps";
+import { ApiClient } from "@/lib";
 
 type INetwork = "MTN" | "AIRTEL" | "GLO";
 export default function SettleCard(props: { onClose: VoidFunction }) {
   const [sendTo, setSendTo] = useState<INetwork>("MTN");
-  
+  ApiClient
   return (
     <ModalWrapper>
       <div className="flex items-center justify-between mt-2 mb-0">
