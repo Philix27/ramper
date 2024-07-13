@@ -8,9 +8,9 @@ export default defineConfig({
     table: "migrations_custom", // default `__drizzle_migrations`,
     schema: "public", // used in PostgreSQL only and default to `drizzle`
   },
-  // dbCredentials: {
-  //   url: process.env.DATABASE_URL,
-  // },
+  dbCredentials: {
+    url: process.env.DATABASE_URL,
+  },
 });
 
 //   schema: "./server/db/schema/*.ts",

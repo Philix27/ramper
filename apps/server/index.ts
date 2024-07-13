@@ -9,7 +9,7 @@ export * from "./routes";
 
 const app = new Hono();
 
-app.use("*", cors({ origin: ["http://localhost:5500"] }));
+app.use("*", cors({ origin: ["http://localhost:3000"] }));
 app.use("*", logger());
 // app.use(
 //   "/auth/*",

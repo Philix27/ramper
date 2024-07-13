@@ -32,6 +32,7 @@ export class GiftCardRepository {
     user_id: number;
   }) {
     try {
+      console.log("Repository gifty create");
       const res = await db.insert(giftCardSchema).values({
         amount: params.amount,
         phone: params.phone,
@@ -39,6 +40,7 @@ export class GiftCardRepository {
         purpose: params.purpose,
         user_id: params.user_id,
       });
+      console.log("Repository gifty", res);
       return res;
     } catch (error) {
       throw new Error("Could not add to database");

@@ -9,7 +9,10 @@ export const giftCardRoutes = new Hono()
   .post("/", createSchema, async (c) => {
     try {
       const payload = c.req.valid("json");
-      const res = await service.create(payload);
+      const res = await service.create({
+        ...payload,
+        user_id: payload.user_wallet_address
+      });
       return c.json({
         msg: "Created a new workspace",
       });
