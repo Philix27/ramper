@@ -2,7 +2,7 @@ import { usersSchema } from "./user";
 import { baseProperties } from "./utils";
 import { integer, pgTable, text, boolean, numeric } from "drizzle-orm/pg-core";
 
-export const giftCardSchema = pgTable("workspace", {
+export const giftCardSchema = pgTable("gift_card", {
   amount: integer("amount").notNull(),
   phone: text("phone"),
   email: text("email"),

@@ -9,7 +9,7 @@
     "typecheck": "tsc --noEmit",
     "format:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
     "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache",
-    "db:generate": "drizzle-kit generate --schema=./db/schema/*.ts --out=./drizzle",
+    "db:generate": "drizzle-kit generate",
     "db:migrate": "bun run ./db/migrate.ts",
     "db:seed": "bun run ./server/db/seed.ts",
     "db:studio": "drizzle-kit studio",
