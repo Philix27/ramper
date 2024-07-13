@@ -2,6 +2,7 @@ import { registerRoutes } from "./routes";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { logger } from "hono/logger";
+import { appLogger } from "./lib";
 
 export * from "./routes";
 
@@ -9,8 +10,12 @@ export * from "./routes";
 
 const app = new Hono();
 
+// app.use("*", cors({ origin: "*" }));
 app.use("*", cors({ origin: ["http://localhost:3000"] }));
 app.use("*", logger());
+
+app.use("*", logger(appLogger));
+
 // app.use(
 //   "/auth/*",
 //   jwt({
@@ -21,7 +26,6 @@ app.use("*", logger());
 const routes = registerRoutes(app);
 
 // generateApi(app.routes);
-
 
 app.get("/", (c) => {
   return c.text("Hello Hono!");

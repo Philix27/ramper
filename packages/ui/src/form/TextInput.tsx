@@ -56,6 +56,13 @@ export function AppTextInput<T extends FieldValues>(props: {
         `
             )}
             {...props.control}
+            // onChange={(e) => {
+            //   if (props.type === "number") {
+            //     props.control.onChange(parseInt(e.target.value));
+            //   } else {
+            //     props.control.onChange(e.target.value);
+            //   }
+            // }}
           />
 
           {props.isPassword &&

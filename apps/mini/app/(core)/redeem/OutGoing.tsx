@@ -1,7 +1,15 @@
+import { useQuery } from "@tanstack/react-query";
 import { GiftCard } from "../_comps/card";
 import { ApiClient } from "@/lib";
 
 export function OutgoingGiftCards() {
+  const query = useQuery({
+    queryKey: ["giftCard"],
+    queryFn: () => {
+      ApiClient.airtime.$get({ json: {} });
+    },
+  });
+
   return (
     <div className="w-full">
       <GiftCard

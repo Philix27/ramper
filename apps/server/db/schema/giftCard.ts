@@ -7,9 +7,10 @@ export const giftCardSchema = pgTable("gift_card", {
   phone: text("phone"),
   email: text("email"),
   purpose: text("purpose"),
-  is_redeem: boolean("purpose").default(false),
-  user_id: integer("user_id")
-    .notNull()
-    .references(() => usersSchema.id),
+  creator_wallet_address: text("creator_wallet_address"),
+  is_redeem: boolean("is_redeem").default(false),
+  // user_id: integer("user_id")
+  //   .notNull()
+  //   .references(() => usersSchema.id),
   ...baseProperties,
 });

@@ -2,6 +2,7 @@ import { db } from "..";
 
 import { eq } from "drizzle-orm";
 import { giftCardSchema } from "../schema";
+import { appLogger } from "../../lib";
 
 export class GiftCardRepository {
   getAll(arg0: { user_id: number }) {
@@ -29,20 +30,20 @@ export class GiftCardRepository {
     phone?: string;
     email?: string;
     purpose?: string;
-    user_id: number;
+    user_wallet_address: string;
   }) {
     try {
-      console.log("Repository gifty create");
+      appLogger("Repository Create Gift Card");
       const res = await db.insert(giftCardSchema).values({
         amount: params.amount,
         phone: params.phone,
         email: params.email,
         purpose: params.purpose,
-        user_id: params.user_id,
+        creator_wallet_address: params.user_wallet_address,
       });
-      console.log("Repository gifty", res);
       return res;
     } catch (error) {
+      appLogger.err("Repository Create Gift Card", error as string);
       throw new Error("Could not add to database");
     }
   }

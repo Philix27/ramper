@@ -2,21 +2,26 @@ import { updateSchema, createSchema, getAllSchema } from "./schema";
 import { Hono } from "hono";
 import { GiftCardService } from "./service";
 import { GiftCardRepository } from "../../db";
+import { appLogger, debug } from "../../lib";
 
 const service = new GiftCardService(new GiftCardRepository());
 
 export const giftCardRoutes = new Hono()
   .post("/", createSchema, async (c) => {
     try {
+      debug("create card routes");
       const payload = c.req.valid("json");
       const res = await service.create({
         ...payload,
-        user_id: payload.user_wallet_address
+        user_wallet_address: payload.user_wallet_address,
       });
+      console.log("Backend: Create routes");
+
       return c.json({
-        msg: "Created a new workspace",
+        msg: "Created a new gift card",
       });
     } catch (error) {
+      appLogger.err("create card routes", error as string);
       return c.json({
         msg: error,
       });
@@ -42,7 +47,7 @@ export const giftCardRoutes = new Hono()
       const payload = c.req.valid("json");
 
       await service.getAll({
-        user_id: 0
+        user_id: 0,
       });
       return c.json({
         msg: "get workspace",

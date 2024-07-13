@@ -6,17 +6,18 @@ export class GiftCardService {
   async create(props: {
     purpose: string;
     amount: number;
-    user_id: number;
+    user_wallet_address: string;
     phone?: string;
     email?: string;
   }) {
     const res = await this.repo.create({
       amount: props.amount,
-      user_id: props.user_id,
+      user_wallet_address: props.user_wallet_address,
       purpose: props.purpose,
       phone: props.phone,
       email: props.email,
     });
+    console.log("Backend: Create Service");
     return res;
   }
 

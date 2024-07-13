@@ -4,7 +4,7 @@ import { z } from "zod";
 export const createSchema = zValidator(
   "json",
   z.object({
-    user_wallet_address: z.number(),
+    user_wallet_address: z.string(),
     amount: z.number(),
     purpose: z.string(),
     phone: z.string().optional(),
