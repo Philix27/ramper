@@ -31,3 +31,12 @@ export const getAllSchema = zValidator(
     offset: z.number().optional(),
   })
 );
+
+export const redeemCardSchema = zValidator(
+  "json",
+  z.object({
+    amount: z.number(),
+    cardId: z.number(),
+    phone: z.string(),
+  })
+);

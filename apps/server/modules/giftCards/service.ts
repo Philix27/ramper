@@ -1,7 +1,14 @@
 import { GiftCardRepository } from "../../db";
+import { MobileVtu } from "../../integrations";
+import { appLogger } from "../../lib";
 
 export class GiftCardService {
-  constructor(private readonly repo: GiftCardRepository) {}
+  constructor(
+    private readonly repo: GiftCardRepository,
+    private readonly mobile: MobileVtu
+  ) {}
+
+  name = GiftCardService.name;
 
   async create(props: {
     purpose: string;
@@ -10,6 +17,7 @@ export class GiftCardService {
     phone?: string;
     email?: string;
   }) {
+    // appLogger(this.name, this.create.name);
     const res = await this.repo.create({
       amount: props.amount,
       user_wallet_address: props.user_wallet_address,
@@ -17,8 +25,27 @@ export class GiftCardService {
       phone: props.phone,
       email: props.email,
     });
-    console.log("Backend: Create Service");
+
     return res;
+  }
+  async redeemCard(props: { amount: number; phone: string; cardId: number }) {
+    appLogger(this.name, this.redeemCard.name);
+    // Call mobile vtu to credit amount and phone
+    try {
+      const res = await this.mobile.topUp({
+        operator: "MTN",
+        type: "airtime",
+        value: props.amount,
+        phone: props.phone,
+      });
+      // const res = await this.repo.update({
+      //   is_redeemed: true,
+      //   id: props.cardId,
+      // });
+      return res;
+    } catch (error) {
+      appLogger.err(this.name, this.redeemCard.name, error as string);
+    }
   }
 
   async get(props: { id: number }) {

@@ -1,11 +1,11 @@
-export function appLogger(message: string, ...rest: string[]) {
-  console.log(message, ...rest);
+export function appLogger(...rest: string[]) {
+  console.debug(rest.join(" --> "));
 }
 
-appLogger.err = (message: string, ...rest: string[]) => {
-  console.log(message, ...rest);
+appLogger.err = (...rest: string[]) => {
+  console.error(rest.join(" --> "));
 };
 
-export const debug = (message: string, ...rest: string[]) => {
-  console.log(message, "I dont", ...rest);
+appLogger.debug = (...rest: string[]) => {
+  console.debug(rest.join(" --> "));
 };

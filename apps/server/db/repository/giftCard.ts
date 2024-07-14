@@ -5,6 +5,7 @@ import { giftCardSchema } from "../schema";
 import { appLogger } from "../../lib";
 
 export class GiftCardRepository {
+  name = GiftCardRepository.name;
   getAll(arg0: { user_id: number }) {
     throw new Error("Method not implemented.");
   }
@@ -33,7 +34,7 @@ export class GiftCardRepository {
     user_wallet_address: string;
   }) {
     try {
-      appLogger("Repository Create Gift Card");
+      appLogger(this.name, "create");
       const res = await db.insert(giftCardSchema).values({
         amount: params.amount,
         phone: params.phone,
@@ -43,17 +44,18 @@ export class GiftCardRepository {
       });
       return res;
     } catch (error) {
-      appLogger.err("Repository Create Gift Card", error as string);
+      appLogger.err(this.name, "create", error as string);
       throw new Error("Could not add to database");
     }
   }
 
-  async update(params: { id: number; redeem: boolean }) {
+  async update(params: { id: number; is_redeemed: boolean }) {
+    appLogger(this.name, "update");
     try {
       const res = await db
         .update(giftCardSchema)
         .set({
-          is_redeem: params.redeem,
+          is_redeem: params.is_redeemed,
         })
         .where(eq(giftCardSchema.id, params.id));
       // todo: Log
