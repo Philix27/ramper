@@ -1,8 +1,8 @@
 "use client";
 import { cn, TextP } from "@repo/ui";
 import React, { useState } from "react";
-import { OutgoingGiftCards } from "./OutGoing";
-import { IncomingGiftCards } from "./Incoming";
+import { EmailGiftCards } from "./CardsEmail";
+import { PhoneGiftCards } from "./CardsPhone";
 import Navbar from "../_comps/navbar";
 import { IoAdd } from "react-icons/io5";
 
@@ -27,7 +27,7 @@ export default function RedeemPage() {
           </div>
         </div>
 
-        {isEmail ? <OutgoingGiftCards /> : <IncomingGiftCards />}
+        {isEmail ? <EmailGiftCards /> : <PhoneGiftCards />}
       </div>
     </>
   );

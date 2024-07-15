@@ -1,31 +1,27 @@
-"use client";
-import { TextH } from "@repo/ui";
+import { useState } from "react";
 import { GiftCard } from "../_comps/card";
+import SettleCard from "./SettleGift";
+import { ApiClient } from "@/lib";
+import { useQuery } from "@tanstack/react-query";
+import { ICard } from "./CardsEmail";
 import { AppContract, useMinipay } from "@/contract";
 import { useReadContract } from "wagmi";
 
-interface ICard {
-  amount: number;
-  createdAt: number;
-  from: string;
-  id: number;
-  isClaimed: boolean;
-  to: string;
-  updatedAt: number;
-}
-export function CardsCreationHistory() {
+export function PhoneGiftCards() {
+  const [showSettler, setShowSettler] = useState(false);
+
   const { walletAddress } = useMinipay();
 
   const result = useReadContract({
     abi: AppContract.abi,
     address: AppContract.address as `0x${string}`,
-    functionName: "getCardsCreatedBy",
-    args: [walletAddress],
+    functionName: "getCardsCreatedFor",
+    args: ["08108850572"],
   });
 
-   if (!walletAddress) {
-     return <div>Loading...</div>;
-   }
+  if (!walletAddress) {
+    return <div>Loading...</div>;
+  }
   if (!result.data) {
     return <div>Loading...</div>;
   }
@@ -33,22 +29,17 @@ export function CardsCreationHistory() {
   console.log("Data", data);
 
   return (
-    <div className="w-full mt-10">
-      <div className="border-b w-full pb-2">
-        <TextH v="h5" className="text-card-foreground">
-          History
-        </TextH>
-      </div>
+    <div className="w-full">
       {data.map((val, i) => (
         <GiftCard
+          onClick={() => setShowSettler(true)}
           cardOwner={val.to}
           amount={val.amount.toString()}
           created={val.createdAt.toString()}
           from={val.from}
         />
       ))}
-
-      
+      {showSettler && <SettleCard onClose={() => setShowSettler(false)} />}
     </div>
   );
 }
