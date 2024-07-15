@@ -33,10 +33,11 @@ export async function getAllCards(props: { userAddress: string }) {
 
   try {
     const txn = await contract.getAllCards!();
-    await txn.wait();
+    const res = await txn.wait();
+    console.log("In getAllCards:", res);
   } catch (error) {
     console.error("Error:", error);
-    throw new Error("Failed operation");
+    // throw new Error("Failed operation");
   }
 }
 

@@ -11,6 +11,6 @@ export const AppContract = {
 };
 
 export function getContractAddress() {
-  if (isTestnet) return "0x1d808aE9c118E8B9c60394F98aa4bfaAA6866F28";
+  if (isTestnet) return "0x3Cd18E1c3b3Ca1d0ede9748373eAfc2AEb87D085";
   return "0xaDC89ab1516f104CfE2200fE1daA40C33DCf97b9";
 }

@@ -1,5 +1,6 @@
-import { isTestnet } from "@/lib"
+
 import { BrowserProvider, ethers } from "ethers"
+import { isTestnet } from "../env"
 
 export type ITokenType =
   | "CUSD_MAINNET"
@@ -41,7 +42,7 @@ export async function transferCusdTokens(props: {
   const tokenAmount = ethers.parseUnits(amount.toString(), 18) // Assuming the token has 18 decimals
 
   // Transfer the tokens
-  const tx = await tokenContract.transfer(recipient, tokenAmount)
+  const tx = await tokenContract.transfer!(recipient, tokenAmount)
   console.log("Transaction hash:", tx.hash)
 
   // Wait for the transaction to be mined
