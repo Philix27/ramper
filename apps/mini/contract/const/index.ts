@@ -1,4 +1,4 @@
-import { isTestnet } from "../env";
+import { isTestnet } from "../utils/env";
 import { AppContractAbi } from "./abi";
 
 export * from "./abi";

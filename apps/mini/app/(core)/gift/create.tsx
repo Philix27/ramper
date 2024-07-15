@@ -6,6 +6,8 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { transferCusdTokens } from "@/contract/const";
+import { useMinipay } from "@/contract";
 
 export const formSchema = z.object({
   purpose: z.string().max(30, { message: "Maximum of 25 characters" }),
@@ -32,6 +34,9 @@ type IAmount = 100 | 200 | 300 | 400 | 500 | 1000;
 export default function CreateGiftCard() {
   const [sendTo, setSendTo] = useState<ISendTo>("PHONE");
   const [amount, setAmount] = useState<IAmount>(100);
+  
+  const { walletAddress } = useMinipay()
+  
   const form = useForm<IFormSchema>({
     resolver: zodResolver(formSchema),
     defaultValues: defaultValues,
@@ -66,13 +71,18 @@ export default function CreateGiftCard() {
   });
 
   async function onSubmit(value: IFormSchema) {
-    console.log("Called mutate");
-    mutation.mutate({
-      purpose: value.purpose,
-      phone: value.phone,
-      email: value.email,
-      card_owner: value.card_owner,
+    console.log("Called mutate", parseInt(amount as unknown as string) / 1500);
+    const trxnHash = await transferCusdTokens({
+      userAddress: walletAddress!,
+      amount: parseInt(amount as unknown as string) / 1500,
     });
+    console.log("Hashed", trxnHash);
+    // mutation.mutate({
+    //   purpose: value.purpose,
+    //   phone: value.phone,
+    //   email: value.email,
+    //   card_owner: value.card_owner,
+    // });
   }
   return (
     <div className="w-full mt-4">
