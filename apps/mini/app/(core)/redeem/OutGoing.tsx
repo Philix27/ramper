@@ -3,12 +3,12 @@ import { GiftCard } from "../_comps/card";
 import { ApiClient } from "@/lib";
 
 export function OutgoingGiftCards() {
-  const query = useQuery({
-    queryKey: ["giftCard"],
-    queryFn: () => {
-      ApiClient.airtime.$get({ json: {} });
-    },
-  });
+  // const query = useQuery({
+  //   queryKey: ["giftCard"],
+  //   queryFn: () => {
+  //     // ApiClient.airtime.$get({ json: {} });
+  //   },
+  // });
 
   return (
     <div className="w-full">

@@ -40,10 +40,17 @@ export function BottomNav() {
                 `size-[40px] 
               flex flex-col items-center justify-center
               rounded-[10px]`,
-                isActive(link) ? "bg-background" : "bg-primary"
+                isActive(link) ? "bg-background" : "bg-primary",
+                isActive(link) && "border-primary border-solid border-[1px]"
               )}
             >
-              <Icon className={"text-primary-foreground"} size={18} />
+              <Icon
+                className={cn(
+                  "text-primary-foreground",
+                  isActive(link) ? "text-primary" : "text-primary-foreground"
+                )}
+                size={18}
+              />
             </div>
           );
         })}

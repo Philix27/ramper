@@ -33,8 +33,8 @@ export async function getAllCards(props: { userAddress: string }) {
 
   try {
     const txn = await contract.getAllCards!();
-    const res = await txn.wait();
-    console.log("In getAllCards:", res);
+    // const res = await txn.wait();
+    console.log("In getAllCards:", txn);
   } catch (error) {
     console.error("Error:", error);
     // throw new Error("Failed operation");
@@ -46,10 +46,23 @@ export async function getCardsCreatedBy(props: { userAddress: string }) {
 
   try {
     const txn = await contract.getCardsCreatedBy!(props.userAddress);
-    await txn.wait();
+    const proxy = txn[0];
+    const data = {
+      id: proxy[0],
+      isCompleted: proxy[1],
+      amount: proxy[2],
+      createdAt: proxy[3],
+      updatedAt: proxy[4],
+      address: proxy[5],
+      identifier: proxy[6],
+    };
+
+    console.log("In getCardsCreatedBy:", data);
+    return data;
+    // await txn.wait();
   } catch (error) {
     console.error("Error:", error);
-    throw new Error("Failed operation");
+    // throw new Error("Failed operation");
   }
 }
 
@@ -61,7 +74,18 @@ export async function getCardsCreatedFor(props: {
 
   try {
     const txn = await contract.getCardsCreatedFor!(props.identifier);
-    await txn.wait();
+    const proxy = txn[0];
+    //  const data = {
+    //    id: proxy[0],
+    //    isCompleted: proxy[1],
+    //    amount: proxy[2],
+    //    createdAt: proxy[3],
+    //    updatedAt: proxy[4],
+    //    address: proxy[5],
+    //    identifier: proxy[6],
+    //  };
+    console.log("In getCardsCreatedFor:", proxy);
+    // await txn.wait();
   } catch (error) {
     console.error("Error:", error);
     throw new Error("Failed operation");

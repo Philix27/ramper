@@ -6,16 +6,16 @@ import { ContractFn } from "@/contract/fn";
 import { useEffect } from "react";
 
 export function CardsCreationHistory() {
-  async function taker() {
-    const res = await ContractFn.getAllCards({
-      userAddress: "0x20F50b8832f87104853df3FdDA47Dd464f885a49",
-    });
+   const result = useReadContract({
+     abi: AppContract.abi,
+     address: AppContract.address as `0x${string}`,
+     functionName: "getAllCards",
+   });
 
-    console.log("Get all cards", res);
-  }
-  useEffect(() => {
-    taker();
-  }, []);
+   if (result.data) {
+     console.log("result", result.data);
+   }
+
 
   return (
     <div className="w-full mt-10">

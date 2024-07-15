@@ -34,9 +34,9 @@ type IAmount = 100 | 200 | 300 | 400 | 500 | 1000;
 export default function CreateGiftCard() {
   const [sendTo, setSendTo] = useState<ISendTo>("PHONE");
   const [amount, setAmount] = useState<IAmount>(100);
-  
-  const { walletAddress } = useMinipay()
-  
+
+  const { walletAddress } = useMinipay();
+
   const form = useForm<IFormSchema>({
     resolver: zodResolver(formSchema),
     defaultValues: defaultValues,
@@ -88,7 +88,7 @@ export default function CreateGiftCard() {
     <div className="w-full mt-4">
       <TextP className="mb-2">Send to:</TextP>
       <select
-        className="w-full p-2 border-none outline-none"
+        className="w-full p-2 bg-secondary outline-secondary"
         onChange={(e) => {
           setSendTo(e.target.value as ISendTo);
         }}
@@ -136,7 +136,7 @@ export default function CreateGiftCard() {
         />
         <TextP className="mb-2">Amount:</TextP>
         <select
-          className="w-full p-2 border-none outline-none"
+          className="w-full p-2 bg-secondary outline-secondary"
           onChange={(e) => {
             setAmount(e.target.value as unknown as IAmount);
           }}
@@ -148,13 +148,11 @@ export default function CreateGiftCard() {
           <option value={500}>₦500</option>
           <option value={600}>₦1,000</option>
         </select>
-        <TextP>Select Design / color</TextP>
       </div>
 
       <AppButton
-        className="my-2"
+        className="mt-5 mb-2"
         onClick={() => {
-          console.log("Create button");
           form.handleSubmit(onSubmit)();
         }}
       >
