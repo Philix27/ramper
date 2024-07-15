@@ -10,7 +10,6 @@ export class UserRepository {
         columns: {
           id: true,
           phone: true,
-          first_name: true,
         },
       });
     } catch (error) {}
@@ -23,8 +22,6 @@ export class UserRepository {
         columns: {
           id: true,
           phone: true,
-          first_name: true,
-          password: true,
         },
       });
       return res;
@@ -34,11 +31,11 @@ export class UserRepository {
   }
   async createUser(params: { phone: string; password: string; bvn: number }) {
     try {
-      const res = await db.insert(usersSchema).values({
-        phone: params.phone,
-        password: params.password,
-        bvn: params.bvn,
-      });
+      // const res = await db.insert(usersSchema).values({
+      //   phone: params.phone,
+      //   password: params.password,
+      //   bvn: params.bvn,
+      // });
     } catch (error) {
       throw new Error("Could not add to database");
     }
@@ -52,36 +49,35 @@ export class UserRepository {
     lga?: string;
     state?: string;
   }) {
-    try {
-      const res = await db
-        .update(usersSchema)
-        .set({
-          first_name: params.first_name,
-          last_name: params.last_name,
-          country: params.country,
-          lga: params.lga,
-        })
-        .where(eq(usersSchema.id, params.id));
-      // todo: Log
-      return res;
-    } catch (error) {
-      // todo: Log
-      throw new Error("Could not update user profile");
-    }
+    // try {
+    //   const res = await db
+    //     .update(usersSchema)
+    //     .set({
+    //       last_name: params.last_name,
+    //       country: params.country,
+    //       lga: params.lga,
+    //     })
+    //     .where(eq(usersSchema.id, params.id));
+    //   // todo: Log
+    //   return res;
+    // } catch (error) {
+    //   // todo: Log
+    //   throw new Error("Could not update user profile");
+    // }
   }
   async updatePassword(params: { phone: string; newPassword?: string }) {
-    try {
-      const res = await db
-        .update(usersSchema)
-        .set({
-          password: params.newPassword,
-        })
-        .where(eq(usersSchema.phone, params.phone));
-      // todo: Log
-      return res;
-    } catch (error) {
-      // todo: Log
-      throw new Error("Could not reset password");
-    }
+    // try {
+    //   const res = await db
+    //     .update(usersSchema)
+    //     .set({
+    //       password: params.newPassword,
+    //     })
+    //     .where(eq(usersSchema.phone, params.phone));
+    //   // todo: Log
+    //   return res;
+    // } catch (error) {
+    //   // todo: Log
+    //   throw new Error("Could not reset password");
+    // }
   }
 }
