@@ -11,7 +11,7 @@ export const testCall = async (props: {
   const contract = await geAppContract(props.userAddress)
 
   try {
-    const txn = await contract.createPayment(props._seller, {
+    const txn = await contract.createPayment!(props._seller, {
       gasLimit: 500000,
       value: parseEther(props.amount),
     })
