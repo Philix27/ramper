@@ -25,7 +25,7 @@ export default function SettleCard(props: { onClose: VoidFunction }) {
           className="bg-secondary/60 rounded-lg p-[2px]"
           onClick={props.onClose}
         >
-          <IoClose className="text-white" />
+          <IoClose className="text-card-foreground" />
         </div>
       </div>
 

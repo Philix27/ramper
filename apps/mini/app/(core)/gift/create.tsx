@@ -36,7 +36,7 @@ export default function CreateGiftCard() {
     resolver: zodResolver(formSchema),
     defaultValues: defaultValues,
   });
-  
+
   const mutation = useMutation({
     mutationFn: async (input: IFormSchema) => {
       console.log("On mutate");
@@ -50,7 +50,7 @@ export default function CreateGiftCard() {
             user_wallet_address: "10",
           },
         });
-        console.log("on success:", res, )
+        console.log("on success:", res);
         return res;
       } catch (error) {
         throw new Error("Could create gift card");
@@ -85,7 +85,6 @@ export default function CreateGiftCard() {
       >
         <option value="PHONE">Phone</option>
         <option value="EMAIL">Email</option>
-        <option value="WALLET">Wallet Address</option>
       </select>
       <div>
         {sendTo === "EMAIL" && (

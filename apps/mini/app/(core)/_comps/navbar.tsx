@@ -3,6 +3,7 @@ import React from "react";
 import { IconType } from "react-icons";
 import {} from "react-icons/ai";
 import { IoIosCard } from "react-icons/io";
+import { ThemeToggle } from "./theme";
 
 export default function Navbar(props: {
   title: string;
@@ -18,12 +19,15 @@ export default function Navbar(props: {
     >
       <div>
         {/* <IoIosCard className={"text-white text-2xl font-black"} /> */}
-        <h1 className={"text-white text-md font-black"}>Rampage</h1>
+        <h1 className={"text-primary text-md font-black tracking-wide"}>Rampage</h1>
       </div>
-      <TextP v="p4" className="text-primary-foreground my-0">
+      <TextP v="p4" className="text-card-foreground my-0">
         {props.title}
       </TextP>
-      {props.icon ? <Icon onClick={props.onIconClick} /> : <div />}
+      <div className="flex items-center gap-x-3">
+        <ThemeToggle />
+        {props.icon ? <Icon onClick={props.onIconClick} /> : <div />}
+      </div>
     </div>
   );
 }

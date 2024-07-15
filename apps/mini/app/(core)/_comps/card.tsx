@@ -15,14 +15,14 @@ export function GiftCard(props: {
       initial={{ x: 20, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ ease: "easeInOut", duration: 0.5 }}
-      className="w-full bg-blue-700 rounded-md px-3 py-2 my-4"
+      className="w-full bg-secondary border-[1px] rounded-md px-3 py-2 my-2"
       onClick={props.onClick}
     >
       <div className="flex items-center justify-between">
-        <TextP v="p3" className={"text-white"}>
+        <TextP v="p3" className={"text-card-foreground"}>
           {props.cardOwner}
         </TextP>
-        <TextH v="h3" className={"text-white"}>
+        <TextH v="h3" className={"text-card-foreground"}>
           {props.amount}
         </TextH>
       </div>

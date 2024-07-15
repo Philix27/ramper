@@ -20,7 +20,7 @@ export function CardsCreationHistory() {
   return (
     <div className="w-full mt-10">
       <div className="border-b w-full pb-2">
-        <TextH v="h5" className="text-white">
+        <TextH v="h5" className="text-card-foreground">
           History
         </TextH>
       </div>

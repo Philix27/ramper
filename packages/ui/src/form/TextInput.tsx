@@ -35,7 +35,7 @@ export function AppTextInput<T extends FieldValues>(props: {
         <div
           className={cn(
             `flex justify-between 
-            items-center border rounded-md 
+            items-center border rounded-md bg-secondary
             w-full px-2`,
             props.errorMessage ? "border-red-600" : "border-input"
           )}
@@ -52,7 +52,7 @@ export function AppTextInput<T extends FieldValues>(props: {
             type={props.isPassword && !showPassword ? "password" : props.type}
             className={cn(
               `flex h-12 w-full rounded-md
-             border-none outline-none bg-transparent
+             border-none outline-none bg-secondary
         `
             )}
             {...props.control}
