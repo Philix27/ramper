@@ -1,8 +1,9 @@
 import { cn } from "@repo/ui";
-import { LucideIcon } from "lucide-react";
+import { IconType } from "react-icons";
+
 
 export function InputText(props: {
-  Icon?: LucideIcon;
+  Icon?: IconType;
   placeH: string;
   className?: string;
 }) {

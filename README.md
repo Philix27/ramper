@@ -29,3 +29,13 @@ Generate nice looking gift cards which your family and friends can claim as airt
 ## How it was made
 
 This project was built using Next.js on the frontend and Hono.js on the backend. When a user creates a gift card of a certain amount for a friend, this friend will be notified and can claim the amount specified on the gift card as airtime. The backend service call mobile vtu platform which then credits the specified phone number provided by the user.
+
+## Tools
+
+Remix, Ethers.js, Wagmi, Viem
+
+## Programming Language
+Javascript, Typescript and Solidity
+
+## Github repo
+- https://github.com/Philix27/rampage
