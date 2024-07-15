@@ -35,11 +35,11 @@ export const giftCardRoutes = new Hono()
       });
     }
   })
-  .get("/:id", async (c) => {
+  .get("/:wallet_address", async (c) => {
     try {
-      const payload = c.req.param("id");
+      const payload = c.req.param("wallet_address");
 
-      await service.get({ id: parseInt(payload) });
+      await service.get({ walletAddress: payload });
 
       return c.json({
         msg: "get workspace",
@@ -54,11 +54,11 @@ export const giftCardRoutes = new Hono()
     try {
       const payload = c.req.valid("json");
 
-      await service.getAll({
-        user_id: 0,
+      const result = await service.getAll({
+        walletAddress: payload.walletAddress,
       });
       return c.json({
-        msg: "get workspace",
+        result,
       });
     } catch (error) {
       return c.json({
@@ -79,7 +79,7 @@ export const giftCardRoutes = new Hono()
       });
     }
   })
-  .post("/redeem", redeemCardSchema, async (c) => {
+  .post("/claim", redeemCardSchema, async (c) => {
     appLogger(page, "redeem");
 
     try {

@@ -6,19 +6,23 @@ import { appLogger } from "../../lib";
 
 export class GiftCardRepository {
   name = GiftCardRepository.name;
-  getAll(arg0: { user_id: number }) {
-    throw new Error("Method not implemented.");
+  async getAll(params: { walletAddress: string }) {
+    try {
+      const res = await db.query.giftCardSchema.findMany({
+        where: (user, { eq }) =>
+          eq(giftCardSchema.creator_wallet_address, params.walletAddress),
+      });
+      return res;
+    } catch (error) {
+      throw new Error("Oops an error ocurred");
+    }
   }
-  delete(arg0: { id: number }) {
-    throw new Error("Method not implemented.");
-  }
-  async getById(params: { id: number }) {
+
+  async getByWalletAddress(params: { walletAddress: string }) {
     try {
       const res = await db.query.giftCardSchema.findFirst({
-        where: (user, { eq }) => eq(giftCardSchema.id, params.id),
-        columns: {
-          id: true,
-        },
+        where: (user, { eq }) =>
+          eq(giftCardSchema.creator_wallet_address, params.walletAddress),
       });
       return res;
     } catch (error) {
@@ -64,5 +68,9 @@ export class GiftCardRepository {
       // todo: Log
       throw new Error("Could not update");
     }
+  }
+
+  delete(arg0: { id: number }) {
+    throw new Error("Method not implemented.");
   }
 }

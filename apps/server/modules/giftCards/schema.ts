@@ -26,7 +26,7 @@ export const updateSchema = zValidator(
 export const getAllSchema = zValidator(
   "json",
   z.object({
-    user_id: z.number(),
+    walletAddress: z.string(),
     limit: z.number().optional(),
     offset: z.number().optional(),
   })

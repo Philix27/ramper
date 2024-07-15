@@ -32,28 +32,32 @@ export class GiftCardService {
     appLogger(this.name, this.redeemCard.name);
     // Call mobile vtu to credit amount and phone
     try {
-      const res = await this.mobile.topUp({
+      await this.mobile.topUp({
         operator: "MTN",
         type: "airtime",
         value: props.amount,
         phone: props.phone,
       });
-      // const res = await this.repo.update({
-      //   is_redeemed: true,
-      //   id: props.cardId,
-      // });
+
+      const res = await this.repo.update({
+        is_redeemed: true,
+        id: props.cardId,
+      });
+
       return res;
     } catch (error) {
       appLogger.err(this.name, this.redeemCard.name, error as string);
     }
   }
 
-  async get(props: { id: number }) {
-    const res = await this.repo.getById({ id: props.id });
+  async get(props: { walletAddress: string }) {
+    const res = await this.repo.getByWalletAddress({
+      walletAddress: props.walletAddress,
+    });
     return res;
   }
-  async getAll(props: { user_id: number }) {
-    const res = await this.repo.getAll({ user_id: props.user_id });
+  async getAll(props: { walletAddress: string }) {
+    const res = await this.repo.getAll({ walletAddress: props.walletAddress });
     return res;
   }
 
