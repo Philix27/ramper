@@ -1,1 +1,0 @@
-smart_contract_address = 0x289A119e299ef34bfCe73EDB856FcEadC55370A5
