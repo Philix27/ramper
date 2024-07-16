@@ -20,7 +20,7 @@ export const useMinipay = () => {
       setIsConnected(true)
       setWalletAddress(address)
     }
-    console.log("SC Account:", address)
+    console.log("Account:", address)
   }, [connect])
 
   return { walletAddress, isConnected }
