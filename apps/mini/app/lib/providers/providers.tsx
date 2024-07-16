@@ -50,7 +50,7 @@ export function AppProviders(props: { children: ReactNode }) {
             </RainbowKitProvider>
           </QueryClientProvider>
         </WagmiProvider>
-        <Toaster className={"bg-primary"} />s
+        <Toaster className={"bg-primary"} />
       </SettingsContext.Provider>
     </ThemeProvider>
   );
