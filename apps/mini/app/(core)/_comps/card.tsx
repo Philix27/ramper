@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { TextH, TextP } from "@repo/ui";
 import { motion } from "framer-motion";
 import React from "react";
@@ -28,7 +28,7 @@ export function GiftCard(props: {
       </div>
       <div className="mt-4 flex items-center justify-between">
         <TextP v="p5">
-          Created: <span>{props.created}</span>
+          <span>{props.created}</span>
         </TextP>
         <TextP>
           From: <span>{props.from}</span>

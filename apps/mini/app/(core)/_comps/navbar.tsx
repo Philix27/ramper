@@ -1,11 +1,9 @@
 import { TextP } from "@repo/ui";
 import React from "react";
 import { IconType } from "react-icons";
-import {} from "react-icons/ai";
-import { IoIosCard } from "react-icons/io";
 import { ThemeToggle } from "./theme";
 
-export default function Navbar(props: {
+export function Navbar(props: {
   title: string;
   icon?: IconType;
   onIconClick?: VoidFunction;
@@ -19,7 +17,9 @@ export default function Navbar(props: {
     >
       <div>
         {/* <IoIosCard className={"text-white text-2xl font-black"} /> */}
-        <h1 className={"text-primary text-md font-black tracking-wide"}>Rampage</h1>
+        <h1 className={"text-primary text-md font-black tracking-wide"}>
+          Rampage
+        </h1>
       </div>
       <TextP v="p4" className="text-card-foreground my-0">
         {props.title}
@@ -31,4 +31,3 @@ export default function Navbar(props: {
     </div>
   );
 }
-

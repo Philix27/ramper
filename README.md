@@ -36,6 +36,12 @@ This project was built using Next.js on the frontend and Hono.js on the backend.
 - Wagmi, Ethers, Viem, WalletConnect
 - Remix
 
+
+### Project Structure
+This is a turbo repo that consist of three main apps.
+- `mini`: This is a mini app designed to be very lightweight and compatible with MiniPay Telegram Mini App.
+- `server`: The backend server running on Hono.js
+- `web`: This is the marketing web app. For Contact Us, Blogs, About Us, Landing page and others
 ### Languages
 
 - Typescript, Javascript, Solidity
@@ -54,13 +60,9 @@ This project was built using Next.js on the frontend and Hono.js on the backend.
 
 
 #### Live link
-- Visit [App link](https://peerie.vercel.app/)
+- Visit [App link](https://rampage-mini.vercel.app/)
 - Open the link in your Opera-mini Minipay site testing playground
 
-## Screenshots
-<!-- Application snapshot -->
-![image](./assets/home.png)
-![image](./assets/dashboard.png)
 
 
 ## Links

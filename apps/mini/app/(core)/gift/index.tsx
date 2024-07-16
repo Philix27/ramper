@@ -1,7 +1,7 @@
 import { TextH, TextP } from "@repo/ui";
 import React from "react";
 import CreateGiftCard from "./create";
-import Navbar from "../_comps/navbar";
+import {Navbar} from "../_comps";
 import { CardsCreationHistory } from "./history";
 
 export default function GiftPage() {

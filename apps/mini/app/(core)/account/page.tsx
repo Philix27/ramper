@@ -1,42 +1,43 @@
 "use client";
 
 import React from "react";
-import Navbar from "../_comps/navbar";
 import { TextH, TextP } from "@repo/ui";
-import { ApiClient } from "@/lib";
-import { useQuery } from "@tanstack/react-query";
+import { useBalance } from "wagmi";
+import { TokenAddress, useMinipay } from "@/contract";
+import { Spinner, Navbar, shortenAddress, formatBalance } from "../_comps";
 
 export default function AccountPage() {
-  
-  const query = useQuery({
-    queryKey: ["profile"],
-    queryFn: () => {
-      ApiClient.beneficiary.$get({ json: { user_id: 2 } });
-    },
+  const { walletAddress } = useMinipay();
+  const result = useBalance({
+    address: walletAddress,
+    token: TokenAddress.CUSD_TESTNET as `0x${string}`,
   });
+  
+  if (!walletAddress) {
+    return <Spinner />;
+  }
+  if (result.isLoading) {
+    return <Spinner />;
+  }
 
   return (
     <>
       <Navbar title={"Profile"} />
       <div className={"flex flex-col items-center px-4 py-4 mb-10"}>
-        <TextH v="h5" >
-          Personal
-        </TextH>
+        <TextH v="h5">Personal</TextH>
         <div className="w-full my-4 bg-secondary px-4 rounded-md">
-          <RowItem left={"Wallet"} right={"0x23433"} />
-          <RowItem left={"Balance"} right={"#15,000"} />
+          <RowItem left={"Wallet"} right={shortenAddress(walletAddress)} />
+          <RowItem
+            left={"Balance"}
+            right={`${result.data?.symbol}- ${formatBalance(
+              result.data?.value!
+            ).slice(0, -15)}`}
+          />
           <RowItem left={"Email"} right={"myemail@gmail.com"} />
           <RowItem left={"Phone"} right={"2348108850572"} />
         </div>
-        <TextH v="h5" >
-          Beneficiary
-        </TextH>
+        <TextH v="h5">Beneficiary</TextH>
         <div className="w-full my-4 bg-secondary px-4 rounded-md">
-          <RowItem left={"Phone"} right={"2348108850572"} />
-          <RowItem left={"Phone"} right={"2348108850572"} />
-          <RowItem left={"Phone"} right={"2348108850572"} />
-          <RowItem left={"Phone"} right={"2348108850572"} />
-          <RowItem left={"Phone"} right={"2348108850572"} />
           <RowItem left={"Phone"} right={"2348108850572"} />
         </div>
       </div>

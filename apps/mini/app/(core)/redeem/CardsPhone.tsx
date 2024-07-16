@@ -6,6 +6,8 @@ import { useQuery } from "@tanstack/react-query";
 import { ICard } from "./CardsEmail";
 import { AppContract, useMinipay } from "@/contract";
 import { useReadContract } from "wagmi";
+import { formatBalance, genDateTime, shortenAddress, Spinner } from "../_comps";
+import { parseEther } from "viem";
 
 export function PhoneGiftCards() {
   const [showSettler, setShowSettler] = useState(false);
@@ -20,25 +22,29 @@ export function PhoneGiftCards() {
   });
 
   if (!walletAddress) {
-    return <div>Loading...</div>;
+    return <Spinner />;
   }
   if (!result.data) {
-    return <div>Loading...</div>;
+    return <Spinner />;
   }
   const data = result.data as ICard[];
   console.log("Data", data);
 
   return (
     <div className="w-full">
-      {data.map((val, i) => (
-        <GiftCard
-          onClick={() => setShowSettler(true)}
-          cardOwner={val.to}
-          amount={val.amount.toString()}
-          created={val.createdAt.toString()}
-          from={val.from}
-        />
-      ))}
+      {data.map((val, i) => {
+        const genDate = genDateTime(Number(val.createdAt));
+        return (
+          <GiftCard
+            key={i}
+            cardOwner={val.to}
+            amount={val.amount.toString()}
+            created={genDate}
+            from={shortenAddress(val.from)}
+            onClick={() => setShowSettler(true)}
+          />
+        );
+      })}
       {showSettler && <SettleCard onClose={() => setShowSettler(false)} />}
     </div>
   );

@@ -3,9 +3,11 @@ import { TextH } from "@repo/ui";
 import { GiftCard } from "../_comps/card";
 import { AppContract, useMinipay } from "@/contract";
 import { useReadContract } from "wagmi";
+import { genDateTime, shortenAddress, Spinner } from "../_comps";
+import { parseEther } from "viem";
 
 interface ICard {
-  amount: number;
+  amount: bigint;
   createdAt: number;
   from: string;
   id: number;
@@ -23,11 +25,11 @@ export function CardsCreationHistory() {
     args: [walletAddress],
   });
 
-   if (!walletAddress) {
-     return <div>Loading...</div>;
-   }
+  if (!walletAddress) {
+    return <Spinner />;
+  }
   if (!result.data) {
-    return <div>Loading...</div>;
+    return <Spinner />;
   }
   const data = result.data as ICard[];
   console.log("Data", data);
@@ -39,16 +41,17 @@ export function CardsCreationHistory() {
           History
         </TextH>
       </div>
-      {data.map((val, i) => (
-        <GiftCard
-          cardOwner={val.to}
-          amount={val.amount.toString()}
-          created={val.createdAt.toString()}
-          from={val.from}
-        />
-      ))}
-
-      
+      {data.map((val, i) => {
+        return (
+          <GiftCard
+            key={i}
+            cardOwner={val.to}
+            amount={val.amount.toString()}
+            created={genDateTime(Number(val.createdAt))}
+            from={shortenAddress(val.from)}
+          />
+        );
+      })}
     </div>
   );
 }

@@ -3,7 +3,7 @@ import { cn, TextP } from "@repo/ui";
 import React, { useState } from "react";
 import { EmailGiftCards } from "./CardsEmail";
 import { PhoneGiftCards } from "./CardsPhone";
-import Navbar from "../_comps/navbar";
+import {Navbar} from "../_comps";
 import { IoAdd } from "react-icons/io5";
 
 export default function RedeemPage() {

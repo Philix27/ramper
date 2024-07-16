@@ -1,11 +1,13 @@
-import { useQuery } from "@tanstack/react-query";
-import { ApiClient } from "@/lib";
 import { GiftCard } from "../_comps/card";
 import { AppContract, useMinipay } from "@/contract";
 import { useReadContract } from "wagmi";
+import { genDateTime, shortenAddress, Spinner } from "../_comps";
+import { parseEther } from "viem";
+import { useState } from "react";
+import SettleCard from "./SettleGift";
 
 export interface ICard {
-  amount: number;
+  amount: BigInt;
   createdAt: number;
   from: string;
   id: number;
@@ -16,6 +18,7 @@ export interface ICard {
 
 export function EmailGiftCards() {
   const { walletAddress } = useMinipay();
+  const [showSettler, setShowSettler] = useState(false);
 
   const result = useReadContract({
     abi: AppContract.abi,
@@ -25,10 +28,10 @@ export function EmailGiftCards() {
   });
 
   if (!walletAddress) {
-    return <div>Loading...</div>;
+    return <Spinner />;
   }
   if (!result.data) {
-    return <div>Loading...</div>;
+    return <Spinner />;
   }
   const data = result.data as ICard[];
   console.log("Data", data);
@@ -41,14 +44,20 @@ export function EmailGiftCards() {
 
   return (
     <div className="w-full">
-      {data.map((val, i) => (
-        <GiftCard
-          cardOwner={val.to}
-          amount={val.amount.toString()}
-          created={val.createdAt.toString()}
-          from={val.from}
-        />
-      ))}
+      {data.map((val, i) => {
+       
+        return (
+          <GiftCard
+            key={i}
+            cardOwner={val.to}
+            amount={val.amount.toString()}
+            created={genDateTime(Number(val.createdAt))}
+            from={shortenAddress(val.from)}
+            onClick={() => setShowSettler(true)}
+          />
+        );
+      })}
+      {showSettler && <SettleCard onClose={() => setShowSettler(false)} />}
     </div>
   );
 }

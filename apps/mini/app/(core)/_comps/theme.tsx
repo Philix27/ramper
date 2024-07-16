@@ -11,12 +11,12 @@ export function ThemeToggle() {
     <>
       {theme === "light" ? (
         <MdNightlight
-          className="h-[1.5rem] w-[1.3rem text-primary-foreground"
+          className="h-[1.5rem] w-[1.3rem text-card-foreground"
           onClick={() => setTheme("dark")}
         />
       ) : (
         <MdOutlineLightMode
-          className="h-[1.5rem] w-[1.3rem text-primary-foreground"
+          className="h-[1.5rem] w-[1.3rem text-card-foreground"
           onClick={() => setTheme("light")}
         />
       )}
