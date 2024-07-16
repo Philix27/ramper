@@ -4,7 +4,7 @@ import React from "react";
 import { TextH, TextP } from "@repo/ui";
 import { useBalance } from "wagmi";
 import { TokenAddress, useMinipay } from "@/contract";
-import { Navbar, shortenAddress, formatBalance } from "../_comps";
+import { Navbar, shortenAddress, formatBalance, Spinner } from "../_comps";
 
 export default function AccountPage() {
   const { walletAddress } = useMinipay();
@@ -13,12 +13,12 @@ export default function AccountPage() {
     token: TokenAddress.CUSD_TESTNET as `0x${string}`,
   });
 
-  // if (!walletAddress) {
-  //   return <Spinner />;
-  // }
-  // if (result.isLoading) {
-  //   return <Spinner />;
-  // }
+  if (!walletAddress) {
+    return <Spinner />;
+  }
+  if (result.isLoading) {
+    return <Spinner />;
+  }
 
   return (
     <>

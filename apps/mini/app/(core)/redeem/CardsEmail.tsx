@@ -27,9 +27,9 @@ export function EmailGiftCards() {
     args: ["an identifier"],
   });
 
-  // if (!walletAddress) {
-  //   return <Spinner />;
-  // }
+  if (!walletAddress) {
+    return <Spinner />;
+  }
   if (result.isLoading) {
     return <Spinner />;
   }

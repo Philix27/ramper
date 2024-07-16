@@ -21,9 +21,9 @@ export function PhoneGiftCards() {
     args: ["08108850572"],
   });
 
-  // if (!walletAddress) {
-  //   return <Spinner />;
-  // }
+  if (!walletAddress) {
+    return <Spinner />;
+  }
   if (result.isLoading) {
     return <Spinner />;
   }
