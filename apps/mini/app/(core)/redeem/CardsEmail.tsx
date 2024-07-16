@@ -27,10 +27,10 @@ export function EmailGiftCards() {
     args: ["an identifier"],
   });
 
-  if (!walletAddress) {
-    return <Spinner />;
-  }
-  if (!result.data) {
+  // if (!walletAddress) {
+  //   return <Spinner />;
+  // }
+  if (result.isLoading) {
     return <Spinner />;
   }
   const data = result.data as ICard[];

@@ -21,10 +21,10 @@ export function PhoneGiftCards() {
     args: ["08108850572"],
   });
 
-  if (!walletAddress) {
-    return <Spinner />;
-  }
-  if (!result.data) {
+  // if (!walletAddress) {
+  //   return <Spinner />;
+  // }
+  if (result.isLoading) {
     return <Spinner />;
   }
   const data = result.data as ICard[];
