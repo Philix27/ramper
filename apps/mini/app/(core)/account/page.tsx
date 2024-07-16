@@ -13,9 +13,9 @@ export default function AccountPage() {
     token: TokenAddress.CUSD_TESTNET as `0x${string}`,
   });
   
-  if (!walletAddress) {
-    return <Spinner />;
-  }
+  // if (!walletAddress) {
+  //   return <Spinner />;
+  // }
   if (result.isLoading) {
     return <Spinner />;
   }
@@ -26,7 +26,7 @@ export default function AccountPage() {
       <div className={"flex flex-col items-center px-4 py-4 mb-10"}>
         <TextH v="h5">Personal</TextH>
         <div className="w-full my-4 bg-secondary px-4 rounded-md">
-          <RowItem left={"Wallet"} right={shortenAddress(walletAddress)} />
+          <RowItem left={"Wallet"} right={shortenAddress(walletAddress!)} />
           <RowItem
             left={"Balance"}
             right={`${result.data?.symbol}- ${formatBalance(

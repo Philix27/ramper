@@ -77,7 +77,7 @@ export default function CreateGiftCard() {
       userAddress: walletAddress!,
       amount: parseInt(amount as unknown as string),
     });
-    console.log("Hashed", trxnHash);
+    // console.log("Hashed", trxnHash);
     writeContract({
       abi: AppContract.abi,
       address: AppContract.address as `0x${string}`,

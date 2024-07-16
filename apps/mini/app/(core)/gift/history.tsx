@@ -4,7 +4,6 @@ import { GiftCard } from "../_comps/card";
 import { AppContract, useMinipay } from "@/contract";
 import { useReadContract } from "wagmi";
 import { genDateTime, shortenAddress, Spinner } from "../_comps";
-import { parseEther } from "viem";
 
 interface ICard {
   amount: bigint;
