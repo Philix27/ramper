@@ -16,16 +16,7 @@ app.use("*", cors({ origin: ["http://localhost:3000"] }));
 
 app.use("*", logger(appLogger));
 
-// app.use(
-//   "/auth/*",
-//   jwt({
-//     secret: "it-is-very-secret",
-//   })
-// )
-
 const routes = registerRoutes(app);
-
-// generateApi(app.routes);
 
 app.get("/", (c) => {
   return c.text("Hello Hono!");
