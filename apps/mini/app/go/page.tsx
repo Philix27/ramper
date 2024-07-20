@@ -1,5 +1,5 @@
 "use client";
-import { AppContract, AppContractAbi, ContractFn } from "@/contract";
+import { AppContract, ContractFn } from "@/contract";
 import React from "react";
 import { useReadContract, useWriteContract } from "wagmi";
 
