@@ -1,13 +1,10 @@
 import { useState } from "react";
 import { GiftCard } from "../_comps/card";
 import { PurchaseAirtime } from "./PurchaseAirtime";
-import { ApiClient } from "@/lib";
-import { useQuery } from "@tanstack/react-query";
 import { ICard } from "./CardsEmail";
 import { AppContract, useMinipay } from "@/contract";
 import { useReadContract } from "wagmi";
-import { formatBalance, genDateTime, shortenAddress, Spinner } from "../_comps";
-import { parseEther } from "viem";
+import { genDateTime, ModalWrapper, shortenAddress, Spinner } from "../_comps";
 
 export function PhoneGiftCards() {
   const [showSettler, setShowSettler] = useState(false);
@@ -45,7 +42,11 @@ export function PhoneGiftCards() {
           />
         );
       })}
-      {showSettler && <PurchaseAirtime onClose={() => setShowSettler(false)} />}
+      {showSettler && (
+        <ModalWrapper>
+          <PurchaseAirtime onClose={() => setShowSettler(false)} />{" "}
+        </ModalWrapper>
+      )}
     </div>
   );
 }

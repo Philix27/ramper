@@ -7,7 +7,7 @@ import { ApiClient } from "@/lib";
 import { useQuery } from "@tanstack/react-query";
 
 type INetwork = "MTN" | "AIRTEL" | "GLO";
-export function PurchaseAirtime(props: { onClose: VoidFunction }) {
+export function PurchaseData(props: { onClose: VoidFunction }) {
   const [sendTo, setSendTo] = useState<INetwork>("MTN");
 
   const query = useQuery({
@@ -20,7 +20,7 @@ export function PurchaseAirtime(props: { onClose: VoidFunction }) {
   return (
     <>
       <div className="flex items-center justify-between mt-2 mb-0">
-        <TextP>Buy network</TextP>
+        <TextP>Buy data plan</TextP>
         <div
           className="bg-secondary/60 rounded-lg p-[2px]"
           onClick={props.onClose}
