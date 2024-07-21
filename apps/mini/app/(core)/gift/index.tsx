@@ -1,15 +1,27 @@
+"use client";
 import { TextH, TextP } from "@repo/ui";
 import React from "react";
 import CreateGiftCard from "./create";
-import {Navbar} from "../_comps";
+import { Navbar } from "../_comps";
 import { CardsCreationHistory } from "./history";
+import { MdHistory } from "react-icons/md";
+import Dashboard from "./dashboard";
 
 export default function GiftPage() {
+
   return (
     <>
-      <Navbar title={"Create gift card"} />
-      <div className="px-8 py-4 mb-10">
-        <TextP v={"p5"}>Send a gift card to your loved ones</TextP>
+      <Navbar title={"Home"} icon={MdHistory} />
+      <div className="px-6 mb-10">
+        <div className="my-4">
+          <TextH v="h2" className={"text-sm"}>
+            Balance:
+          </TextH>
+          <TextH v="h2" className={"text-primary font-bold"}>
+            300 cUSD
+          </TextH>
+        </div>
+        <Dashboard />
         <CreateGiftCard />
         <CardsCreationHistory />
       </div>

@@ -3,7 +3,7 @@
 import React from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { IconType } from "react-icons";
-import { IoGift, IoHome, IoPerson } from "react-icons/io5";
+import { IoGift, IoHome, IoPerson, IoSwapHorizontal } from "react-icons/io5";
 import { cn } from "@repo/ui";
 
 export function BottomNav() {
@@ -70,8 +70,8 @@ const navItems: { title: string; Icon: IconType | IconType; link: string }[] = [
     Icon: IoGift,
   },
   {
-    title: "Profile",
-    link: "/account",
-    Icon: IoPerson,
+    title: "P2P",
+    link: "/p2p",
+    Icon: IoSwapHorizontal,
   },
 ];

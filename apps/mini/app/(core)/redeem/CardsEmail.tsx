@@ -4,7 +4,7 @@ import { useReadContract } from "wagmi";
 import { genDateTime, shortenAddress, Spinner } from "../_comps";
 import { parseEther } from "viem";
 import { useState } from "react";
-import SettleCard from "./SettleGift";
+import SettleCard from "./PurchaseAirtime";
 
 export interface ICard {
   amount: BigInt;
@@ -45,7 +45,6 @@ export function EmailGiftCards() {
   return (
     <div className="w-full">
       {data.map((val, i) => {
-       
         return (
           <GiftCard
             key={i}

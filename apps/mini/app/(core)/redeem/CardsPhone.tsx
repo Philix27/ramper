@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { GiftCard } from "../_comps/card";
-import SettleCard from "./SettleGift";
+import { PurchaseAirtime } from "./PurchaseAirtime";
 import { ApiClient } from "@/lib";
 import { useQuery } from "@tanstack/react-query";
 import { ICard } from "./CardsEmail";
@@ -45,7 +45,7 @@ export function PhoneGiftCards() {
           />
         );
       })}
-      {showSettler && <SettleCard onClose={() => setShowSettler(false)} />}
+      {showSettler && <PurchaseAirtime onClose={() => setShowSettler(false)} />}
     </div>
   );
 }

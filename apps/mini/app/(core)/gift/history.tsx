@@ -40,7 +40,7 @@ export function CardsCreationHistory() {
           History
         </TextH>
       </div>
-      {/* {data.map((val, i) => {
+      {data.map((val, i) => {
         return (
           <GiftCard
             key={i}
@@ -50,7 +50,7 @@ export function CardsCreationHistory() {
             from={shortenAddress(val.from)}
           />
         );
-      })} */}
+      })}
     </div>
   );
 }

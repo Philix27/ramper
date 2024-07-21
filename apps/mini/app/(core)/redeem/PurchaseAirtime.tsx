@@ -7,7 +7,7 @@ import { ApiClient } from "@/lib";
 import { useQuery } from "@tanstack/react-query";
 
 type INetwork = "MTN" | "AIRTEL" | "GLO";
-export default function SettleCard(props: { onClose: VoidFunction }) {
+export function PurchaseAirtime(props: { onClose: VoidFunction }) {
   const [sendTo, setSendTo] = useState<INetwork>("MTN");
 
   const query = useQuery({

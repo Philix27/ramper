@@ -23,7 +23,7 @@ export default function AccountPage() {
   return (
     <>
       <Navbar title={"Profile"} />
-      <div className={"flex flex-col items-center px-4 py-4 mb-10"}>
+      <div className={"flex flex-col items-center px-4 py-6 mb-10"}>
         <TextH v="h5">Personal</TextH>
         <div className="w-full my-4 bg-secondary px-4 rounded-md">
           {walletAddress && (
