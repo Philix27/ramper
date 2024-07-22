@@ -4,12 +4,15 @@ import { PurchaseAirtime } from "../redeem/PurchaseAirtime";
 import { ModalWrapper } from "../_comps";
 import { PurchaseData } from "../redeem/PurchaseData";
 import { useRouter } from "next/navigation";
+import { AppStores } from "@/lib";
 
 export default function Dashboard() {
   const router = useRouter();
+  const store = AppStores.useSettingsStore();
   const [showModal, setShowModal] = useState<
     "AIRTIME" | "DATA" | "SUB" | "NONE"
   >("NONE");
+  const [nextForm, setNextForm] = useState<"BUY" | "SELL" | "NONE">("NONE");
   const dashboardList = [
     {
       title: "Airtime",
@@ -30,21 +33,15 @@ export default function Dashboard() {
       },
     },
     {
-      title: "P2P",
+      title: "Sell",
       onClick: () => {
-        router.push("/p2p");
+        store.update({ homeContent: "SELL" });
       },
     },
     {
-      title: "Gift Card",
+      title: "Buy",
       onClick: () => {
-        router.push("/redeem");
-      },
-    },
-    {
-      title: "Beneficiary",
-      onClick: () => {
-        router.push("/account");
+        store.update({ homeContent: "BUY" });
       },
     },
   ];

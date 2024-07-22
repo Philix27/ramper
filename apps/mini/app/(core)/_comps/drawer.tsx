@@ -31,6 +31,13 @@ export default function Drawer() {
             }}
           />
           <DrawerRow
+            title={"Beneficiary"}
+            icon={IoPerson}
+            onClick={() => {
+              router.push("/account");
+            }}
+          />
+          <DrawerRow
             title={"Theme"}
             icon={theme === "light" ? MdNightlight : MdOutlineLightMode}
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}

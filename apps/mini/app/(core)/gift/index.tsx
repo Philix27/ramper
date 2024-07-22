@@ -1,11 +1,12 @@
 "use client";
-import { TextH, TextP } from "@repo/ui";
+import { TextH } from "@repo/ui";
 import React from "react";
-import CreateGiftCard from "./create";
+import {CreateGiftCard} from "./create";
 import { Navbar } from "../_comps";
 import { CardsCreationHistory } from "./history";
 import { MdHistory } from "react-icons/md";
 import Dashboard from "./dashboard";
+import { FxCrypto } from "./Fx";
 
 export default function GiftPage() {
 
@@ -22,7 +23,8 @@ export default function GiftPage() {
           </TextH>
         </div>
         <Dashboard />
-        <CreateGiftCard />
+        <FxCrypto />
+        {/* <CreateGiftCard /> */}
         <CardsCreationHistory />
       </div>
     </>

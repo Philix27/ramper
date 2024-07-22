@@ -5,13 +5,13 @@ import { EmailGiftCards } from "./CardsEmail";
 import { PhoneGiftCards } from "./CardsPhone";
 import { Navbar } from "../_comps";
 import { IoAdd } from "react-icons/io5";
-import CreateGiftCard from "../gift/create";
+import { CreateGiftCard } from "../gift/create";
 
 export default function RedeemPage() {
   const [isEmail, setIsEmail] = useState(true);
   return (
     <>
-      <Navbar title={"Redeem Gift Card"} icon={IoAdd} />
+      <Navbar title={"Gift Card"} icon={IoAdd} />
       <div className={"flex flex-col items-center px-6 py-4 mb-10"}>
         <CreateGiftCard />
         <div className="flex items-center bg-secondary w-fit rounded-lg p-[2px]">

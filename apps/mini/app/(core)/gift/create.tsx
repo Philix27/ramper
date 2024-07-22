@@ -32,7 +32,7 @@ export type IFormSchema = z.infer<typeof formSchema>;
 type ISendTo = "PHONE" | "EMAIL";
 type IAmount = 100 | 200 | 300 | 400 | 500 | 1000;
 
-export default function CreateGiftCard() {
+export function CreateGiftCard() {
   const [sendTo, setSendTo] = useState<ISendTo>("PHONE");
   const [amount, setAmount] = useState<IAmount>(100);
   const { writeContract } = useWriteContract();
@@ -82,7 +82,7 @@ export default function CreateGiftCard() {
       abi: AppContract.abi,
       address: AppContract.address as `0x${string}`,
       functionName: "createCard",
-      args: [value.phone, parseInt(amount as unknown as string),],
+      args: [value.phone, parseInt(amount as unknown as string)],
     });
     // mutation.mutate({
     //   purpose: value.purpose,
@@ -104,7 +104,7 @@ export default function CreateGiftCard() {
         <option value="PHONE">Phone</option>
         <option value="EMAIL">Email</option>
       </select>
-      <div>
+      <div className="flex flex-col items-center">
         {sendTo === "EMAIL" && (
           <AppTextInput
             errorMessage={form.formState.errors.email?.message}
@@ -142,7 +142,9 @@ export default function CreateGiftCard() {
           className="mt-2"
           label="Purpose"
         />
-        <TextP className="mb-2">Amount:</TextP>
+        <div>
+          <TextP className="mb-2">Amount:</TextP>
+        </div>
         <select
           className="w-full p-2 bg-secondary outline-secondary"
           onChange={(e) => {
@@ -155,16 +157,16 @@ export default function CreateGiftCard() {
           <option value={4}>$4</option>
           <option value={5}>$5</option>
         </select>
-      </div>
 
-      <AppButton
-        className="mt-5 mb-2"
-        onClick={() => {
-          form.handleSubmit(onSubmit)();
-        }}
-      >
-        Create
-      </AppButton>
+        <AppButton
+          className="my-5 w-[80%]"
+          onClick={() => {
+            form.handleSubmit(onSubmit)();
+          }}
+        >
+          Create
+        </AppButton>
+      </div>
     </div>
   );
 }
