@@ -4,7 +4,7 @@ import { integer, pgTable, text, boolean } from "drizzle-orm/pg-core";
 
 export const beneficiarySchema = pgTable("beneficiary", {
   phone: text("phone").notNull(),
-  title: text("title"),
+  title: text("title").notNull(),
   user_id: integer("user_id")
     .notNull()
     .references(() => usersSchema.id),

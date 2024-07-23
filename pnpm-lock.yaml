@@ -135,6 +135,9 @@ importers:
       '@neondatabase/serverless':
         specifier: ^0.9.3
         version: 0.9.4
+      '@repo/rpc':
+        specifier: workspace:*
+        version: link:../../packages/rpc
       axios:
         specifier: 1.7.2
         version: 1.7.2

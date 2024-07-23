@@ -9,8 +9,8 @@ const schema = {
     name: z.string(),
   }),
   delete: z.object({
-    user_id: z.string(),
-    beneficiary_id: z.string(),
+    user_id: z.number(),
+    beneficiary_id: z.number(),
   }),
   getAll: z.object({
     user_id: z.number(),
@@ -23,13 +23,12 @@ export type IWorkspaceCreate = {
   phone: string;
   name: string;
 };
-export type IAirtimeBeneficiaryGetAll = { phone: string; name: string }[];
+export type IAirtimeBeneficiaryGetAll = { phone: string; title: string }[];
 export type IAirtimeBeneficiaryDelete = {
-  user_id: string;
+  msg: string;
 };
 export type IAirtimeBeneficiaryCreate = {
-  user_id: string;
-  beneficiary_id: string;
+  msg: string;
 };
 //* Interface for Service and RPC
 export interface IAirtimeBeneficiary {

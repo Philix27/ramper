@@ -1,5 +1,5 @@
-import { db } from "..";
-import { beneficiarySchema } from "../schema";
+import { db } from "../../db";
+import { beneficiarySchema } from "../../db/schema";
 import { eq } from "drizzle-orm";
 
 export class BeneficiaryRepository {
@@ -18,11 +18,12 @@ export class BeneficiaryRepository {
   }
   async getAll(params: { user_id: number }) {
     try {
-      const res = await db.query.beneficiarySchema.findFirst({
+      const res = await db.query.beneficiarySchema.findMany({
         where: (user, { eq }) => eq(beneficiarySchema.user_id, params.user_id),
         columns: {
           id: true,
           phone: true,
+          title: true,
         },
       });
       return res;
@@ -31,14 +32,14 @@ export class BeneficiaryRepository {
     }
   }
 
-  async create(params: { phone: string; title?: string; user_id: number }) {
+  async create(params: { phone: string; title: string; user_id: number }) {
     try {
       const res = await db.insert(beneficiarySchema).values({
         phone: params.phone,
         title: params.title,
         user_id: params.user_id,
       });
-      return res;
+      return { msg: "success" };
     } catch (error) {
       throw new Error("Could not add to database");
     }
@@ -48,8 +49,8 @@ export class BeneficiaryRepository {
     try {
       const res = await db
         .delete(beneficiarySchema)
-        .where(eq(beneficiarySchema.id, params.id));
-      // todo: Log
+        .where(eq(beneficiarySchema.id, params.id))
+        .returning();
       return res;
     } catch (error) {
       // todo: Log
