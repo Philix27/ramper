@@ -19,10 +19,6 @@ const schema = {
 
 export const AirtimeBeneficiarySchema = schema;
 //* Return Schema
-export type IWorkspaceCreate = {
-  phone: string;
-  name: string;
-};
 export type IAirtimeBeneficiaryGetAll = { phone: string; title: string }[];
 export type IAirtimeBeneficiaryDelete = {
   msg: string;

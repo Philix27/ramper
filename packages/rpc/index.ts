@@ -3,6 +3,7 @@ import { GiftCardRpc, GiftCardSchema } from "./giftcard";
 import { NewsletterRpc, NewsletterSchema } from "./newsletter";
 import { UtilityRpc, UtilitySchema } from "./utility";
 import { WaitListRpc, WaitListSchema } from "./waitlist";
+import { TransactionsRpc, TransactionSchema } from "./transactions";
 
 
 export const AppRpc = {
@@ -11,6 +12,7 @@ export const AppRpc = {
   giftCard: new GiftCardRpc(),
   waitList: new WaitListRpc(),
   utility: new UtilityRpc(),
+  transactions: new TransactionsRpc(),
 };
 
 export const ApiSchema = {
@@ -19,6 +21,7 @@ export const ApiSchema = {
   giftCard: GiftCardSchema,
   waitList: WaitListSchema,
   utility: UtilitySchema,
+  transactions: TransactionSchema,
 };
 
 export * from "./airtimeBeneficiary";
@@ -26,3 +29,4 @@ export * from "./giftcard";
 export * from "./newsletter";
 export * from "./utility";
 export * from "./waitlist";
+export * from "./transactions";
