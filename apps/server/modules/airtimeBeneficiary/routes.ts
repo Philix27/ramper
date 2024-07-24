@@ -1,6 +1,6 @@
 import { Hono } from "hono";
 import { BeneficiaryService } from "./service";
-import { BeneficiaryRepository } from "../../db";
+import { BeneficiaryRepository } from "./repo";
 import { AirtimeBeneficiarySchema as schema } from "@repo/rpc";
 import { zValidator } from "@hono/zod-validator";
 import { HttpStatusCode } from "axios";

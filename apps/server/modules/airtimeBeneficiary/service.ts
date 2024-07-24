@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { BeneficiaryRepository } from "../../db";
+import { BeneficiaryRepository } from "./repo";
 import {
   AirtimeBeneficiarySchema as schema,
   IAirtimeBeneficiary,

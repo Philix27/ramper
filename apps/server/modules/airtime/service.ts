@@ -1,4 +1,4 @@
-import { AirtimeRepository } from "../../db";
+import { AirtimeRepository } from "./repo";
 
 export class AirtimePlanService {
   constructor(private readonly repo: AirtimeRepository) {}

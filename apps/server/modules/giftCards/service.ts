@@ -1,6 +1,6 @@
-import { GiftCardRepository } from "../../db";
-import { MobileVtu } from "../../integrations";
-import { appLogger } from "../../lib";
+import { GiftCardRepository } from "./repo";
+import { MobileVtu } from "@server/integrations";
+import { appLogger } from "@server/lib";
 
 export class GiftCardService {
   constructor(

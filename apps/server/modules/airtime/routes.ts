@@ -1,6 +1,6 @@
 import { Hono } from "hono";
 import { AirtimePlanService } from "./service";
-import { AirtimeRepository } from "../../db";
+import { AirtimeRepository } from "./repo";
 
 const service = new AirtimePlanService(new AirtimeRepository());
 

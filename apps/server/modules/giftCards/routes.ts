@@ -6,9 +6,9 @@ import {
 } from "./schema";
 import { Hono } from "hono";
 import { GiftCardService } from "./service";
-import { GiftCardRepository } from "../../db";
-import { appLogger } from "../../lib";
-import { MobileVtu } from "../../integrations";
+import { GiftCardRepository } from "./repo";
+import { appLogger } from "@server/lib";
+import { MobileVtu } from "@server/integrations";
 
 const page = "GiftCardRoutes";
 const service = new GiftCardService(new GiftCardRepository(), new MobileVtu());
