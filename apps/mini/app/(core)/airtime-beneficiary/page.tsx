@@ -1,17 +1,16 @@
 "use client";
 
-import React from "react";
-import { AppButton, TextH, TextP } from "@repo/ui";
+import React, { useState } from "react";
+import { AppButton, TextH } from "@repo/ui";
 import { useBalance } from "wagmi";
 import { TokenAddress, useMinipay } from "@/contract";
-import { Navbar, shortenAddress, formatBalance, Spinner } from "../_comps";
-import { AirtimeBeneficiaryRpc } from "@repo/rpc";
+import { Navbar, shortenAddress, formatBalance, ModalWrapper } from "../_comps";
 import { RowItem } from "./RowItem";
 import List from "./List";
+import { AddBeneficiaryModal } from "./AddBene";
 
 export default function AirtimeBeneficiaryPage() {
-  const rpc = new AirtimeBeneficiaryRpc();
-
+  const [showModal, setShowModal] = useState(false);
   const { walletAddress } = useMinipay();
   const result = useBalance({
     address: walletAddress,
@@ -19,9 +18,6 @@ export default function AirtimeBeneficiaryPage() {
   });
 
   // if (!walletAddress) {
-  //   return <Spinner />;
-  // }
-  // if (result.isLoading) {
   //   return <Spinner />;
   // }
 
@@ -48,12 +44,22 @@ export default function AirtimeBeneficiaryPage() {
         </div>
         <div className="flex items-center justify-between w-full px-4">
           <TextH v="h5">Beneficiary</TextH>
-          <AppButton className="w-fit py-[1px]">Add</AppButton>
+          <AppButton
+            className="w-fit py-[1px]"
+            onClick={() => setShowModal(true)}
+          >
+            Add
+          </AppButton>
         </div>
         <div className="w-full my-4 bg-secondary px-4 rounded-md">
           <List />
         </div>
       </div>
+      {showModal && (
+        <ModalWrapper>
+          <AddBeneficiaryModal onClose={() => setShowModal(false)} />
+        </ModalWrapper>
+      )}
     </>
   );
 }
