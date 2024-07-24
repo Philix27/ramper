@@ -3,6 +3,6 @@ export const API_BASE_URL = "http://localhost:5050/api";
 
 import axios from "axios";
 
-export function request(data: any): any {
-  return axios.post(API_BASE_URL, data);
+export function request(data: any, name: string): any {
+  return axios.post(API_BASE_URL.concat(name), data);
 }

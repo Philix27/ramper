@@ -2,6 +2,11 @@
   "compilerOptions": {
     "strict": true,
     "jsx": "react-jsx",
-    "jsxImportSource": "hono/jsx"
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "jsxImportSource": "hono/jsx",
+    "paths": {
+      "@server/*": ["./*"]
+    }
   }
 }

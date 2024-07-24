@@ -34,7 +34,7 @@ export default function Drawer() {
             title={"Beneficiary"}
             icon={IoPerson}
             onClick={() => {
-              router.push("/account");
+              router.push("/airtime-beneficiary");
             }}
           />
           <DrawerRow

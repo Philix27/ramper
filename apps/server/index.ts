@@ -2,7 +2,7 @@ import { registerRoutes } from "./routes";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { logger } from "hono/logger";
-import { appLogger } from "./lib";
+import { appLogger } from "@server/lib";
 
 export * from "./routes";
 

@@ -48,16 +48,17 @@ export class AirtimeBeneficiaryRpc implements IAirtimeBeneficiary {
   async create(
     props: z.infer<typeof schema.create>
   ): Promise<IAirtimeBeneficiaryCreate> {
-    return await request(props);
+    return await request(props, "/beneficiary/create");
   }
   async getAll(
     props: z.infer<typeof schema.getAll>
   ): Promise<IAirtimeBeneficiaryGetAll> {
-    return await request(props);
+    const result = await request(props, "/beneficiary/get_all");
+    return result.data;
   }
   async delete(
     props: z.infer<typeof schema.delete>
   ): Promise<IAirtimeBeneficiaryDelete> {
-    return await request(props);
+    return await request(props, "/beneficiary/delete");
   }
 }

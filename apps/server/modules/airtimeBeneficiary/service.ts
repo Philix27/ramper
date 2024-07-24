@@ -7,10 +7,11 @@ import {
   IAirtimeBeneficiaryDelete,
   IAirtimeBeneficiaryGetAll,
 } from "@repo/rpc";
+import { logFn } from "@server/lib";
 
 export class BeneficiaryService implements IAirtimeBeneficiary {
   constructor(private readonly repo: BeneficiaryRepository) {}
-
+  @logFn()
   async create(
     props: z.infer<typeof schema.create>
   ): Promise<IAirtimeBeneficiaryCreate> {
@@ -21,14 +22,14 @@ export class BeneficiaryService implements IAirtimeBeneficiary {
     });
     return res;
   }
-
+  @logFn()
   async getAll(
     props: z.infer<typeof schema.getAll>
   ): Promise<IAirtimeBeneficiaryGetAll> {
     const res = await this.repo.getAll({ user_id: props.user_id });
     return res;
   }
-
+  @logFn()
   async delete(
     props: z.infer<typeof schema.delete>
   ): Promise<IAirtimeBeneficiaryDelete> {
