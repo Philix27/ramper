@@ -1,8 +1,7 @@
-import { db } from "..";
+import { db, giftCardSchema } from "@server/db";
 
 import { eq } from "drizzle-orm";
-import { giftCardSchema } from "../schema";
-import { appLogger } from "../../lib";
+import { appLogger } from "@server/lib";
 
 export class GiftCardRepository {
   name = GiftCardRepository.name;

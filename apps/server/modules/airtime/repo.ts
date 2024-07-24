@@ -1,5 +1,4 @@
-import { db } from "..";
-import { airtimePlanSchema } from "../schema";
+import { db, airtimePlanSchema } from "@server/db";
 import { eq } from "drizzle-orm";
 
 export class AirtimeRepository {

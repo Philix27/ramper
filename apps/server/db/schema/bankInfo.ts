@@ -1,14 +1,13 @@
+import { usersSchema } from "./user";
 import { baseProperties } from "./utils";
 import { integer, pgTable, text } from "drizzle-orm/pg-core";
 
-export const usersSchema = pgTable("users", {
-  wallet_address: text("wallet_address").notNull(),
-  phone: text("phone"),
-  email: text("email"),
+export const bankInfoSchema = pgTable("bank_info", {
   bankName: text("bank_name"),
   bankAccountName: text("bank_account_name"),
   bankAccountNo: text("bank_account_no"),
-  nin: text("nin"),
-  bvn: text("bvn"),
+  user_id: integer("user_id")
+    .notNull()
+    .references(() => usersSchema.id),
   ...baseProperties,
 });

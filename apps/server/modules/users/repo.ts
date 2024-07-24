@@ -1,5 +1,4 @@
-import { db } from "..";
-import { usersSchema } from "../schema";
+import { db, usersSchema } from "@server/db";
 import { eq } from "drizzle-orm";
 
 export class UserRepository {
