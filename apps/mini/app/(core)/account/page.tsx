@@ -40,10 +40,12 @@ export default function AccountPage() {
 
           <RowItem left={"Email"} right={"myemail@gmail.com"} />
           <RowItem left={"Phone"} right={"2348108850572"} />
-        </div>
-        <TextH v="h5">Beneficiary</TextH>
-        <div className="w-full my-4 bg-secondary px-4 rounded-md">
-          <RowItem left={"Phone"} right={"2348108850572"} />
+          <RowItem left={"First name"} right={"Felix"} />
+          <RowItem left={"Last name"} right={"Eligbue"} />
+          <RowItem left={"Middle name"} right={""} />
+          <RowItem left={"BVN"} right={"222222222"} />
+          <RowItem left={"NIN"} right={"78787878787"} />
+          <RowItem left={"DOB"} right={"27, July 1998"} />
         </div>
       </div>
     </>
