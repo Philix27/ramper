@@ -4,6 +4,8 @@ const zodEnv = z.object({
   DATABASE_URL: z.string(),
   PORT: z.string(),
   NODE_ENV: z.string(),
+  AFRICA_TALKING_USERNAME: z.string(),
+  AFRICA_TALKING_KEY: z.string(),
 });
 
 declare global {
@@ -24,3 +26,4 @@ try {
     throw new Error(`Missing environment variables:\n  ${errorMessage}`);
   }
 }
+
