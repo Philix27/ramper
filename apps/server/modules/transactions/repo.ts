@@ -4,6 +4,25 @@ import { HttpStatusCode } from "axios";
 
 export class TransactionsRepository {
   @logFn()
+  async create(params: {
+    amount: number;
+    unit: string;
+    purpose: string;
+    category: string;
+    user_id: number;
+  }) {
+    try {
+      const res = await db.insert(transactionSchema).values(params).returning();
+      return res;
+    } catch (error) {
+      throw new AppError(
+        "Oops an error occurred",
+        HttpStatusCode.InternalServerError,
+        error
+      );
+    }
+  }
+  @logFn()
   async getAll(params: { userId: number }) {
     try {
       const res = await db.query.transactionSchema.findMany({

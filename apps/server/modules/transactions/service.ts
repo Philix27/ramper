@@ -12,4 +12,16 @@ export class TransactionService implements ITransactions {
     const res = await this.repo.getAll(props);
     return res;
   }
+
+  @logFn()
+  async create(params: {
+    amount: number;
+    unit: string;
+    purpose: string;
+    category: string;
+    user_id: number;
+  }) {
+    const res = await this.repo.create(params);
+    return res;
+  }
 }
